@@ -124,7 +124,19 @@ class LightGridModule extends PuzzleModule {
     }
     try {
       final lights = boolList(state.data['lights'], length: size * size);
-      boolList(state.data['remainingSolution'], length: size * size);
+      final remaining = boolList(
+        state.data['remainingSolution'],
+        length: size * size,
+      );
+      final solvedByVector = List<bool>.from(lights);
+      for (var index = 0; index < remaining.length; index++) {
+        if (remaining[index]) _toggle(solvedByVector, index, size);
+      }
+      if (solvedByVector.any((light) => light)) {
+        return const VerificationResult.invalid(
+          'Light solution vector does not solve the board',
+        );
+      }
       if (state.solved != lights.every((light) => !light)) {
         return const VerificationResult.invalid(
           'Light solved flag is inconsistent',

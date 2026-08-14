@@ -79,4 +79,72 @@ void main() {
     );
     expect(PuzzleBoardState.fromJson(state.toJson()), state);
   });
+
+  test(
+    'verifiers reject structurally valid but impossible imported openings',
+    () {
+      final sliding = PuzzleCatalog.byId('sliding_tiles').module;
+      final slidingState = sliding.generate(
+        seed: 1,
+        difficulty: PuzzleDifficulty.beginner,
+      );
+      final slidingBoard = intList(slidingState.data['board']);
+      final first = slidingBoard.indexWhere((value) => value != 0);
+      final second = slidingBoard.indexWhere((value) => value != 0, first + 1);
+      final temporary = slidingBoard[first];
+      slidingBoard[first] = slidingBoard[second];
+      slidingBoard[second] = temporary;
+      expect(
+        sliding
+            .verify(
+              PuzzleBoardState(
+                data: <String, Object?>{
+                  'size': slidingState.data['size']!,
+                  'board': slidingBoard,
+                },
+              ),
+            )
+            .isValid,
+        isFalse,
+      );
+
+      final lights = PuzzleCatalog.byId('light_grid').module;
+      final lightState = lights.generate(
+        seed: 2,
+        difficulty: PuzzleDifficulty.easy,
+      );
+      expect(
+        lights
+            .verify(
+              PuzzleBoardState(
+                data: <String, Object?>{
+                  ...lightState.data,
+                  'remainingSolution': List<bool>.filled(16, false),
+                },
+              ),
+            )
+            .isValid,
+        isFalse,
+      );
+
+      final sort = PuzzleCatalog.byId('color_sort').module;
+      final sortState = sort.generate(
+        seed: 3,
+        difficulty: PuzzleDifficulty.medium,
+      );
+      expect(
+        sort
+            .verify(
+              PuzzleBoardState(
+                data: <String, Object?>{
+                  ...sortState.data,
+                  'generatedSolution': <Object?>[],
+                },
+              ),
+            )
+            .isValid,
+        isFalse,
+      );
+    },
+  );
 }

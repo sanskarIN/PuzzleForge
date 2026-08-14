@@ -167,6 +167,19 @@ class MazeModule extends PuzzleModule {
           walls[exit]) {
         return const VerificationResult.invalid('Maze endpoints are invalid');
       }
+      for (var index = 0; index < walls.length; index++) {
+        final row = index ~/ size;
+        final column = index % size;
+        if ((row == 0 ||
+                row == size - 1 ||
+                column == 0 ||
+                column == size - 1) &&
+            !walls[index]) {
+          return const VerificationResult.invalid(
+            'Maze boundary must remain closed',
+          );
+        }
+      }
       if (!_reachable(player, exit, size, walls)) {
         return const VerificationResult.invalid('Maze exit is unreachable');
       }

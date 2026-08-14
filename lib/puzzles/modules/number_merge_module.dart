@@ -111,7 +111,7 @@ class NumberMergeModule extends PuzzleModule {
       if (rngState is! int ||
           rngState < 0 ||
           target is! int ||
-          target < 128 ||
+          !const <int>{128, 256, 512, 1024, 2048, 4096}.contains(target) ||
           mergeScore is! int ||
           mergeScore < 0) {
         return const VerificationResult.invalid(

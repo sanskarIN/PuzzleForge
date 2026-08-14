@@ -160,3 +160,24 @@ flutter test test\\app -r expanded
 ### Exact next action
 
 Commit the coordinator, then finish UI polish, widget coverage, Android launch resources, and release gates.
+
+## 2026-08-14 — Phase 2C import and invariant hardening
+
+- Strengthened Light Grid imports by replaying the stored solution vector and rejecting vectors that do not turn every light off.
+- Strengthened Color Sort openings by replaying the complete constructive solution and rejecting missing, malformed, illegal, or incomplete action sequences.
+- Required sealed Maze boundaries, valid Sudoku digits, supported power-of-two Number Merge targets, and bounded redo-action histories.
+- Added negative tests for parity-invalid Sliding Tiles, invalid Light Grid solution vectors, and missing Color Sort solutions.
+
+### Verification
+
+```text
+flutter test test\\puzzles -r expanded
+flutter analyze --fatal-infos
+```
+
+- Puzzle suite: passed all 22 tests.
+- Static analysis: passed with no issues in 34.9 seconds.
+
+### Exact next action
+
+Commit validation hardening, then complete and commit the UI layer.

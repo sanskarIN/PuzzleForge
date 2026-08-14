@@ -199,6 +199,44 @@ class ColorSortModule extends PuzzleModule {
           'Color sort solved flag is inconsistent',
         );
       }
+      final generated = state.data['generatedSolution'];
+      if (state.moveCount == 0 && !state.solved) {
+        if (generated is! List || generated.isEmpty) {
+          return const VerificationResult.invalid(
+            'Color sort opening requires a constructive solution',
+          );
+        }
+        var replay = <List<int>>[
+          for (final tube in tubes) List<int>.from(tube),
+        ];
+        for (final rawMove in generated) {
+          if (rawMove is! Map) {
+            return const VerificationResult.invalid(
+              'Color sort solution action is invalid',
+            );
+          }
+          final move = Map<String, Object?>.from(rawMove);
+          final from = move['from'];
+          final to = move['to'];
+          if (from is! int || to is! int) {
+            return const VerificationResult.invalid(
+              'Color sort solution action is invalid',
+            );
+          }
+          final next = _pour(replay, from, to);
+          if (next == null) {
+            return const VerificationResult.invalid(
+              'Color sort solution contains an illegal move',
+            );
+          }
+          replay = next;
+        }
+        if (!_isSolved(replay)) {
+          return const VerificationResult.invalid(
+            'Color sort constructive solution does not finish the board',
+          );
+        }
+      }
     } on FormatException {
       return const VerificationResult.invalid(
         'Color sort state data is invalid',

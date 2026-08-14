@@ -247,7 +247,8 @@ class PuzzleSessionController extends ChangeNotifier {
         ids.any((id) => id is! String) ||
         actions is! List ||
         redoActions is! List ||
-        actions.length > 10000) {
+        actions.length > 10000 ||
+        redoActions.length > 10000) {
       throw const FormatException('Invalid puzzle session events');
     }
     controller._deliveredHintIds.addAll(ids.cast<String>());
