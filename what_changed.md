@@ -97,3 +97,23 @@ flutter test -r expanded
 ### Exact next action
 
 Commit the deterministic engine, then commit session state, progression, persistence, backup integrity, safe-link services, and their tests as a separate coherent batch.
+
+## 2026-08-14 — Phase 2B session, progress, and local data
+
+- Implemented gameplay session control with legal-action enforcement, verified state transitions, bounded undo/redo, replay actions, pause/resume timing, restart, score calculation, and versioned restoration.
+- Implemented idempotent hint delivery: a hint is generated before charging, stable hint IDs prevent repeat charges, and empty wallets remain unchanged.
+- Implemented local XP, levels, stars, hint tokens, bounded history, favorites, achievements, personal records, and daily/best streak state. Completion IDs prevent duplicate rewards.
+- Implemented validated settings covering theme, language, animation, motion, contrast, dyslexia support, labels, audio, haptics, battery, performance, confirmations, tutorial, notifications, and hidden developer controls.
+- Added SharedPreferences and in-memory key-value adapters, bounded JSON repository records, corruption-safe fallback without overwriting the source, active-session saves, and delete-all support.
+- Added SHA-256 backup envelopes with schema, timestamp, one-megabyte limit, strict structure validation, and constant-time digest comparison.
+- Added a strict external-link service allowing only the documented GitHub, BMC, and project email destinations.
+- Added tests for undo/redo replay consistency, pause/resume timing, session restoration, hint charging, progression idempotency, streak rules, storage corruption, and backup tampering.
+
+### Verification
+
+- These files were included in the final successful analyzer run: no issues found.
+- These tests were included in the successful full suite: 31 total tests passed.
+
+### Exact next action
+
+Implement the English/Hindi localization catalog, Material 3 app shell, controller wiring, responsive home/catalog/daily/gameplay/result/settings/support/about/editor screens, and module-specific accessible boards.

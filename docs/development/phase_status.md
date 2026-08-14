@@ -3,8 +3,8 @@
 | Phase | Status | Exit evidence |
 |---|---|---|
 | 1. Product, repository, architecture, design system | Complete | Community files, CI, Android policies, original branding, and required documentation created |
-| 2. Core gameplay engine and rules | In progress | Shared puzzle contract is the next implementation batch |
-| 3. Main UI and offline gameplay | Not started | — |
+| 2. Core gameplay engine and rules | Complete | 8 deterministic modules, session/persistence services, and 31 tests pass |
+| 3. Main UI and offline gameplay | In progress | Localization and app state are next |
 | 4. Progression, settings, accessibility, localization | Not started | — |
 | 5. Testing, hardening, release preparation | Not started | — |
 
