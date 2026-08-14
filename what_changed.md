@@ -214,7 +214,7 @@ flutter build apk --debug
 
 - Formatter: passed; 52 source/test files checked in the latest run.
 - Widget suite after fixes: passed all 5 tests.
-- Full suite: passed all 42 tests.
+- Full suite: passed all 43 tests, including the pseudolocalization check.
 - Analyzer: passed with no issues after the final source fix.
 - Android debug build: blocked before Android compilation because Gradle needed a network download and the sandbox denied the connection. The required approval retry was rejected because the environment usage limit had been reached. No Android build success is claimed and no source error was fabricated.
 - Integration test: authored but not executed because an Android target/build is unavailable in this environment.
@@ -222,3 +222,52 @@ flutter build apk --debug
 ### Exact next action
 
 Commit the complete UI and Android branding batches, run repository/secret/license checks, attempt Git push, then rerun the Android build and device matrix when Gradle access is available.
+
+## 2026-08-14 — Phase 5 source-alpha validation and release records
+
+- Finalized original legacy/round launcher vectors, pre-Android-12 launch artwork, Android 12 light/dark splash themes, and a dedicated round icon manifest reference.
+- Kept the minimum Android SDK tied to Flutter 3.44.7's supported `flutter.minSdkVersion`; application ID remains `com.sanskarin.puzzleforge`.
+- Rechecked the complete Dart source and tests after pseudolocalization was included.
+- Parsed every Android XML and bundled SVG as XML, then compiled and linked the complete Android resource tree with AAPT2 against Android API 36 using a validation-only manifest.
+- Scanned tracked and untracked source material, excluding generated/cache directories, for common private-key, GitHub token, Google API key, AWS access-key, and Stripe secret patterns; no candidate credential was found.
+- Confirmed every bundled asset is present in the asset-license manifest.
+- Enumerated the resolved Dart package graph and inspected package license files for the source-alpha dependency snapshot.
+- Added source-alpha release notes, Play Store metadata source, a dependency/asset review, and a commit register.
+- Corrected the continuation ledger's application ID and synchronized all test-count records to 43.
+
+### Commands and results
+
+```text
+flutter test -r expanded
+flutter analyze --fatal-infos
+aapt2 compile --dir android/app/src/main/res -o build/puzzleforge-resources.zip
+aapt2 link ... -I <Android API 36 android.jar> ... build/puzzleforge-resources.zip
+flutter pub deps --style=compact
+git diff --check
+```
+
+- Full suite: passed all 43 tests.
+- Analyzer: passed with `No issues found` in 26.3 seconds.
+- Android resource XML parse, compile, and link: passed.
+- Secret-pattern scan: passed with no candidate credentials.
+- Bundled-asset manifest comparison: passed.
+- Resolved dependency license-file review: passed for the source-alpha graph.
+- Full Gradle Android debug APK: still not completed; the prior sandbox network denial and rejected approval remain the controlling evidence.
+- Emulator, physical-device, TalkBack, lifecycle, low-memory, orientation, performance, release signing, and AAB gates: not executed and remain open.
+
+### Commits created so far
+
+- `8f1a6a9` — `chore: bootstrap Flutter Android application`
+- `5b995cb` — `docs: establish product and repository foundation`
+- `e2bf603` — `feat: add deterministic puzzle module engine`
+- `209377c` — `feat: add local session and progression services`
+- `8f7c1dd` — `feat: add English and Hindi localization`
+- `5ce9ae4` — `feat: coordinate offline app state`
+- `6a86905` — `fix: harden imported puzzle validation`
+- `200d459` — `feat: deliver responsive offline puzzle experience`
+- `a1481b5` — `build: finish Android launch branding`
+- `82fc283` — `docs: prepare source alpha release materials`
+
+### Exact next action
+
+Commit this validation/release-documentation batch, push `agent/complete-project` to `origin`, attempt a draft pull request, and record the exact publication result. Android artifact/device validation resumes only when Gradle access and a target device are available.
