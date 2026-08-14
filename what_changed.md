@@ -136,3 +136,27 @@ flutter test test\\localization -r expanded
 ### Exact next action
 
 Commit localization, then commit the app coordinator and complete responsive UI as separate coherent batches.
+
+## 2026-08-14 — Phase 3B application coordinator
+
+- Added the application coordinator for asynchronous startup, corruption recovery notices, deterministic daily/campaign/custom/endless session creation, saved-session restoration, settings, favorites, history, backup import/export, external links, and delete-all behavior.
+- Connected session events to queued progress/session persistence and automatic idempotent completion records.
+- Added coordinator tests for save/restore and completion award behavior.
+
+### Error found and fixed
+
+- Initial completion test found that a queued pre-completion listener could serialize the later solved state, delete it after recording, and then a second queued listener could write the solved session back.
+- Fixed by snapshotting state at notification time, marking completion synchronously, never persisting solved sessions, and deleting the active save after the single completion record.
+
+### Verification
+
+```text
+flutter test test\\app -r expanded
+```
+
+- Initial run: 1 of 2 tests failed and exposed the solved-session persistence race.
+- Rerun after fix: passed both tests.
+
+### Exact next action
+
+Commit the coordinator, then finish UI polish, widget coverage, Android launch resources, and release gates.
