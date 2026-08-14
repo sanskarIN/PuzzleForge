@@ -31,4 +31,13 @@ void main() {
     expect(strings.plural('count.puzzles', 1), '1 puzzle');
     expect(strings.plural('count.puzzles', 4), '4 puzzles');
   });
+
+  test('pseudolocalization expands and marks translated text', () {
+    final strings = AppLocalizations(const Locale('en', 'XA'));
+    final value = strings.text('home.level', <String, Object?>{'level': 12});
+    expect(value, startsWith('⟦'));
+    expect(value, endsWith('···⟧'));
+    expect(value, contains('12'));
+    expect(value, isNot('Level 12'));
+  });
 }

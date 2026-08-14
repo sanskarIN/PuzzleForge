@@ -7,7 +7,11 @@ class AppLocalizations {
 
   final Locale locale;
 
-  static const supportedLocales = <Locale>[Locale('en'), Locale('hi')];
+  static const supportedLocales = <Locale>[
+    Locale('en'),
+    Locale('hi'),
+    Locale('en', 'XA'),
+  ];
 
   static AppLocalizations of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations) ??
@@ -31,7 +35,28 @@ class AppLocalizations {
     for (final entry in arguments.entries) {
       value = value.replaceAll('{${entry.key}}', entry.value.toString());
     }
+    if (locale.countryCode == 'XA') value = pseudoLocalize(value);
     return value;
+  }
+
+  static String pseudoLocalize(String value) {
+    const replacements = <String, String>{
+      'a': 'á',
+      'e': 'é',
+      'i': 'í',
+      'o': 'ó',
+      'u': 'ú',
+      'A': 'Á',
+      'E': 'É',
+      'I': 'Í',
+      'O': 'Ó',
+      'U': 'Ú',
+    };
+    final transformed = value
+        .split('')
+        .map((character) => replacements[character] ?? character)
+        .join();
+    return '⟦$transformed ···⟧';
   }
 
   String plural(String key, int count) {
@@ -243,6 +268,15 @@ class AppLocalizations {
     'settings.english': 'English',
     'settings.hindi': 'हिन्दी',
     'settings.animationSpeed': 'Animation speed',
+    'settings.animationQuality': 'Animation quality',
+    'settings.quality.low': 'Low',
+    'settings.quality.balanced': 'Balanced',
+    'settings.quality.high': 'High',
+    'settings.performanceMode': 'Performance preference',
+    'settings.performance.battery': 'Battery',
+    'settings.performance.balanced': 'Balanced',
+    'settings.performance.smooth': 'Smooth',
+    'settings.clearCache': 'Clear cache',
     'settings.unlockProgress':
         'Tap {remaining} more times to unlock developer options.',
     'settings.unlocked': 'Developer options unlocked.',
@@ -337,6 +371,7 @@ class AppLocalizations {
     'data.invalid': 'Backup rejected: {error}',
     'data.confirmDelete': 'Delete all PuzzleForge data from this device?',
     'data.deleted': 'Local data was deleted and safe defaults were restored.',
+    'data.cacheCleared': 'Temporary cache is clear.',
     'notice.recovered':
         'Some saved data was invalid. Safe defaults were loaded without overwriting the source.',
     'count.puzzles.one': '{count} puzzle',
@@ -527,6 +562,15 @@ class AppLocalizations {
     'settings.english': 'English',
     'settings.hindi': 'हिन्दी',
     'settings.animationSpeed': 'एनीमेशन गति',
+    'settings.animationQuality': 'एनीमेशन गुणवत्ता',
+    'settings.quality.low': 'कम',
+    'settings.quality.balanced': 'संतुलित',
+    'settings.quality.high': 'उच्च',
+    'settings.performanceMode': 'प्रदर्शन प्राथमिकता',
+    'settings.performance.battery': 'बैटरी',
+    'settings.performance.balanced': 'संतुलित',
+    'settings.performance.smooth': 'स्मूद',
+    'settings.clearCache': 'कैश साफ करें',
     'settings.unlockProgress': 'डेवलपर विकल्प के लिए {remaining} बार और दबाएँ।',
     'settings.unlocked': 'डेवलपर विकल्प चालू हुए।',
     'support.title': 'PuzzleForge का समर्थन',
@@ -617,6 +661,7 @@ class AppLocalizations {
     'data.invalid': 'बैकअप अस्वीकार: {error}',
     'data.confirmDelete': 'इस डिवाइस का सारा PuzzleForge डेटा हटाएँ?',
     'data.deleted': 'स्थानीय डेटा हटाकर सुरक्षित डिफ़ॉल्ट लागू किए गए।',
+    'data.cacheCleared': 'अस्थायी कैश साफ है।',
     'notice.recovered':
         'कुछ सहेजा डेटा अमान्य था। स्रोत बदले बिना सुरक्षित डिफ़ॉल्ट लोड हुए।',
     'count.puzzles.one': '{count} पहेली',

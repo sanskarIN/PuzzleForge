@@ -2,12 +2,12 @@
 
 | Layer | Required evidence | Owner/state |
 |---|---|---|
-| Pure domain | Generator determinism, invariants, rules, solver/verifier, scoring | Automated; pending implementation |
-| Session | Undo/redo, replay, timer, hint idempotency, serialization | Automated; pending implementation |
-| Persistence | Round trip, corrupt data, migration, import size/checksum | Automated; pending implementation |
-| Localization | English/Hindi key parity, fallback, plurals, long text | Automated + manual; pending |
-| Widgets | Home, navigation, boards, BMC, settings, semantics | Automated; pending |
-| Integration | Startup, complete/save/resume, daily, backup | Automated/emulator; pending |
+| Pure domain | Generator determinism, invariants, rules, solver/verifier, scoring | Automated; passed in 42-test suite |
+| Session | Undo/redo, replay, timer, hint idempotency, serialization | Automated; passed |
+| Persistence | Round trip, corrupt data, migration, import size/checksum | Automated; passed for current schema, corruption, and checksum |
+| Localization | English/Hindi key parity, fallback, plurals, pseudolocale, long text | Automated catalog tests passed; manual linguistic/large-text device review pending |
+| Widgets | Home, navigation, boards, BMC, settings, semantics | Automated smoke/semantics tests passed |
+| Integration | Startup, complete/save/resume, daily, backup | Android journey authored; device execution pending |
 | Accessibility | TalkBack, large text, contrast, reduced motion, targets | Manual physical/emulator; pending |
 | Android | Debug APK, signed AAB, background/resume, orientations | CI + release environment; pending |
 | Performance | Frame timing, generator bounds, memory pressure | Profile build/device; pending |

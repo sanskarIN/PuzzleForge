@@ -181,3 +181,44 @@ flutter analyze --fatal-infos
 ### Exact next action
 
 Commit validation hardening, then complete and commit the UI layer.
+
+## 2026-08-14 — Phases 3 and 4 complete UI experience
+
+- Replaced the template app with an asynchronous Material 3 application shell, runtime themes/locales, reduced-motion transitions, high contrast, responsive layouts, lifecycle persistence, and optional performance overlay.
+- Added original programmatic PuzzleForge brand mark and Android launch/legacy/adaptive icon resources.
+- Built responsive Home, Catalog, Puzzle Detail/Difficulty, Daily Challenge, Campaign, Endless, Favorites, Continue, Recent/Completed, Gameplay, Pause, Result, Statistics, Achievements, Streak, Themes, Tutorial, Guide, Settings, Support/BMC, About/Open Source, Privacy, Terms, Third-Party Notices, Developer Options, and Puzzle Editor experiences.
+- Built accessible interactive boards for all eight enabled modules, including button/keyboard direction alternatives, semantic state descriptions, labels/patterns/numbers in addition to color, and responsive phone/large-screen layouts.
+- Added deep grouped settings for theme, game theme, animation, motion, contrast, typography spacing, numeric labels, language, sound, haptics, battery/performance, confirmations, notifications preference, tutorial reset, defaults, backups, cache/history/data deletion, support, legal, and hidden developer diagnostics.
+- Added validated creator-level import/export metadata with schema/module versions, deterministic seed, difficulty, localization metadata, tags, campaign position, reward, duplicate-ID checks, generator verification, preview, and JSON export.
+- Added an original prominent, non-tracking, non-blocking BMC component with strict allowlisted launch behavior and graceful failure feedback.
+- Added Android integration journey source plus app, navigation, localization, BMC semantics, tap-target, support-launch, and runtime language-switching tests.
+
+### Errors found and fixed
+
+- Initial widget compilation failed because the semantics test lacked the `SemanticsAction` import; added the correct SDK import.
+- Initial BMC launch smoke test tapped text just outside the viewport; changed it to ensure and tap the complete support component.
+- Initial game-flow assertion looked for a tooltip on a labeled button; corrected it to assert the visible localized label.
+- Initial BMC semantics exposed its label without a tap action at the selected semantics node; made the wrapper an explicit link/button action and excluded duplicate child semantics.
+- A Flutter 3.44 API mismatch used `TextFormField.onSubmitted`; changed to `onFieldSubmitted`.
+- A final analyzer pass found one unused integration-test import; removed it.
+
+### Verification
+
+```text
+dart format lib test integration_test
+flutter test test\\widgets -r expanded
+flutter test -r expanded
+flutter analyze --fatal-infos
+flutter build apk --debug
+```
+
+- Formatter: passed; 52 source/test files checked in the latest run.
+- Widget suite after fixes: passed all 5 tests.
+- Full suite: passed all 42 tests.
+- Analyzer: passed with no issues after the final source fix.
+- Android debug build: blocked before Android compilation because Gradle needed a network download and the sandbox denied the connection. The required approval retry was rejected because the environment usage limit had been reached. No Android build success is claimed and no source error was fabricated.
+- Integration test: authored but not executed because an Android target/build is unavailable in this environment.
+
+### Exact next action
+
+Commit the complete UI and Android branding batches, run repository/secret/license checks, attempt Git push, then rerun the Android build and device matrix when Gradle access is available.
