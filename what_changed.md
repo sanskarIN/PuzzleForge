@@ -117,3 +117,22 @@ Commit the deterministic engine, then commit session state, progression, persist
 ### Exact next action
 
 Implement the English/Hindi localization catalog, Material 3 app shell, controller wiring, responsive home/catalog/daily/gameplay/result/settings/support/about/editor screens, and module-specific accessible boards.
+
+## 2026-08-14 — Phase 3A localization foundation
+
+- Added a runtime localization delegate with polished English and Hindi source catalogs, English fallback, argument substitution, singular/plural selection, and locale-aware date/number formatting.
+- Localized navigation, puzzle metadata/rules, hints, accessibility descriptions, gameplay, results, settings, support, legal, progression, developer, editor, backup, and error states.
+- Added a catalog parity test preventing missing Hindi or English keys.
+
+### Verification
+
+```text
+flutter test test\\localization -r expanded
+```
+
+- Result: passed all 3 localization tests.
+- Catalog parity: passed with more than 180 required keys.
+
+### Exact next action
+
+Commit localization, then commit the app coordinator and complete responsive UI as separate coherent batches.
