@@ -3,10 +3,10 @@
 ## Resume pointer
 
 - Date: 2026-08-14
-- Phase: 1 — repository foundation
+- Phase: 2 — core gameplay engine
 - Version: 0.1.0+1
-- Last completed task: Flutter Android scaffold created
-- Exact next file/task: create the Phase 1 documentation and repository community files
+- Last completed task: Phase 1 repository, architecture, design, Android, branding, CI, and documentation foundation
+- Exact next file/task: implement `lib/puzzles/core/puzzle_module.dart` and deterministic starter modules
 - Unresolved blocker: GitHub CLI token is invalid; implementation can continue locally
 
 ## Stable decisions

@@ -1,0 +1,46 @@
+name: Bug report
+description: Report a reproducible PuzzleForge defect
+title: "bug: "
+labels: [bug, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: Do not disclose vulnerabilities or personal data here; follow SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: App version
+      placeholder: 0.1.0+1
+    validations:
+      required: true
+  - type: dropdown
+    id: puzzle
+    attributes:
+      label: Area
+      options: [Startup, Home, Daily challenge, Gameplay, Save or restore, Settings, Accessibility, Localization, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Include the puzzle ID, difficulty, seed, and exact actions when applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Device and environment
+      description: Android version, device model, orientation, locale, theme, and accessibility settings.

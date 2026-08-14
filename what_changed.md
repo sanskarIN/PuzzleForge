@@ -33,3 +33,35 @@ flutter create --project-name puzzle_forge --org com.sanskarin --platforms andro
 ### Exact next action
 
 Create and commit the Phase 1 repository foundation, documentation, CI, Android policy files, and original vector branding.
+
+## 2026-08-14 — Phase 1 foundation
+
+- Replaced the generated README with product setup, scope, support, licensing, and project-state guidance.
+- Added public roadmap, changelog, contribution guide, code of conduct, security policy, privacy template, terms template, and third-party notices.
+- Added structured GitHub bug/feature forms, pull-request template, and CI for Flutter 3.44.7.
+- Documented architecture, puzzle contract, persistence, gameplay, progression, settings, UX, accessibility, privacy, security, testing, Android release, technologies, monetization fairness, future work, and suggestion handling.
+- Created original light and dark BMC support-card SVGs and an explicit asset-license manifest.
+- Set canonical Android namespace/application ID to `com.sanskarin.puzzleforge`, minimum SDK 23, Java 17, release shrinking, cleartext-disabled network policy, explicit backup/data-extraction rules, and an original adaptive launcher icon.
+- Added Flutter localization, local-preference, safe URL-launching, checksum, and integration-test dependencies; pinned Flutter 3.44.7.
+
+### Commands executed
+
+```text
+flutter --version --machine
+```
+
+### Verification
+
+- Flutter toolchain lookup: passed; Flutter 3.44.7 stable and Dart 3.12.2 detected.
+- Documentation and configuration files: created and manually cross-referenced.
+- Dependency resolution, analysis, tests, and Android compilation: deferred until functional source exists; no results claimed.
+
+### Architectural decisions
+
+- Offline-first Flutter app with no backend, accounts, ads, analytics, billing, or dangerous Android permissions in the initial release.
+- Pure deterministic puzzle rules below an injected session/persistence layer.
+- Donations remain an external, untracked, optional support action.
+
+### Exact next action
+
+Implement the common puzzle model, deterministic seeds, undo/redo session logic, local services, and solver-verified starter modules.

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Support this project — Buy Me a Coffee</title>
+  <desc id="desc">An original PuzzleForge coffee cup with heart-shaped steam and a forge spark.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#312E81"/><stop offset="1" stop-color="#0F766E"/></linearGradient>
+  </defs>
+  <rect width="1200" height="360" rx="48" fill="url(#bg)"/>
+  <circle cx="190" cy="180" r="118" fill="#FFF7ED" opacity=".12"/>
+  <path d="M112 152h135v84c0 31-25 56-56 56h-23c-31 0-56-25-56-56z" fill="#FFF7ED"/>
+  <path d="M247 171h24c36 0 36 56 0 56h-24" fill="none" stroke="#FFF7ED" stroke-width="18" stroke-linecap="round"/>
+  <path d="M161 130c-39-31 3-70 30-35 27-35 69 4 30 35l-30 25z" fill="#FB7185"/>
+  <path d="M302 79l9 25 25 9-25 9-9 25-9-25-25-9 25-9z" fill="#FBBF24"/>
+  <text x="365" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="38" font-weight="600">Support this project</text>
+  <text x="365" y="218" fill="#FFFFFF" font-family="sans-serif" font-size="58" font-weight="800">Buy Me a Coffee</text>
+  <text x="365" y="274" fill="#CCFBF1" font-family="sans-serif" font-size="27">Optional support • Core puzzles stay fair and accessible</text>
+  <path d="M1100 162l30 18-30 18m29-18h-76" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

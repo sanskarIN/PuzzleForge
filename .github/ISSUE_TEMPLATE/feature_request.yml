@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest an accessible, fair improvement
+title: "feat: "
+labels: [enhancement, needs-triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Player problem
+      description: What need or frustration should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed experience
+    validations:
+      required: true
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility and fairness
+      description: Explain color-independent cues, input alternatives, and monetization impact.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
