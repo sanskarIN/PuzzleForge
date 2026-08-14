@@ -65,3 +65,35 @@ flutter --version --machine
 ### Exact next action
 
 Implement the common puzzle model, deterministic seeds, undo/redo session logic, local services, and solver-verified starter modules.
+
+## 2026-08-14 — Phase 2A deterministic puzzle engine
+
+- Added the versioned puzzle module contract, JSON-safe immutable board snapshots, actions, hints, verification results, accessibility descriptions, scoring, and canonical serialization helpers.
+- Added SHA-256 daily and weekly seed derivation with generator-version separation.
+- Implemented eight enabled modules: Sliding Tiles, Number Merge, Light Grid, Maze, Sudoku, Memory Match, Color Sort, and Number Sequence.
+- Added six difficulty levels with documented, module-specific scaling rules.
+- Added a typed catalog with unique module IDs, categories, icon names, and accessible accent metadata.
+- Added deterministic, serialization, legal-action, invariant, hint, catalog uniqueness, and date-boundary tests across multiple seeds and every difficulty.
+
+### Commands executed and results
+
+```text
+flutter pub get
+dart format lib test
+flutter analyze --fatal-infos
+flutter test test\\puzzles -r expanded
+flutter test -r expanded
+```
+
+- Dependency resolution: passed and updated `pubspec.lock`.
+- First analyzer run: failed with 40 findings, including 9 errors caused by interface default-method semantics and one backup map cast, plus style infos.
+- Fixes: changed the puzzle contract to an inherited abstract base with a const constructor, corrected the backup cast, and retained the recommended lints while disabling two non-semantic formatting preferences that conflicted with the established compact style.
+- First puzzle test run: failed because some Color Sort scrambles were not constructively reversible.
+- Fixes: constrained reverse-generation sources/destinations, handled an exhausted source set, and defined Color Sort as an accessible one-token-per-action mechanic.
+- Focused Color Sort rerun: passed 2 tests.
+- Full test run: passed all 31 tests.
+- Final analyzer run: passed with `No issues found` in 182.6 seconds.
+
+### Exact next action
+
+Commit the deterministic engine, then commit session state, progression, persistence, backup integrity, safe-link services, and their tests as a separate coherent batch.
