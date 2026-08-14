@@ -271,3 +271,19 @@ git diff --check
 ### Exact next action
 
 Commit this validation/release-documentation batch, push `agent/complete-project` to `origin`, attempt a draft pull request, and record the exact publication result. Android artifact/device validation resumes only when Gradle access and a target device are available.
+
+## 2026-08-14 — GitHub publication attempt
+
+```text
+git push -u origin agent/complete-project
+```
+
+- First attempt: failed because the sandbox could not connect to `github.com:443`.
+- Required escalation: requested for the exact `git push` command and rejected because the environment usage limit had been reached.
+- Safety response: no alternate transport, credential bypass, indirect upload, or other workaround was attempted.
+- Draft pull request: not attempted because the branch does not exist on the remote and `gh auth status` reports an invalid stored token.
+- Local repository: intact on `agent/complete-project`, with all commits and a clean pre-publication worktree before this log update.
+
+### Exact next action
+
+When outbound GitHub access is available, run `git push -u origin agent/complete-project`. Then authenticate the GitHub CLI with `gh auth login --hostname github.com` and create a draft pull request from `agent/complete-project` to `main`. Do not rebuild, squash, or replace the existing commit history.

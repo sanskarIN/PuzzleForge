@@ -6,8 +6,8 @@
 - Phase: 5 — QA and release hardening
 - Version: 0.1.0+1
 - Last completed task: complete the source alpha, run the 43-test suite and analyzer, validate Android resources with AAPT2, review resolved dependency licenses/assets, and scan the repository for credential patterns
-- Exact next file/task: rerun `flutter build apk --debug` with approved Gradle access, then execute the Android emulator, physical-device, accessibility, lifecycle, performance, and signed-AAB gates
-- Unresolved blockers: Gradle artifact download is blocked by the current sandbox/usage limit; GitHub CLI token is invalid, although Git credential push will still be attempted
+- Exact next file/task: push `agent/complete-project` with approved outbound GitHub access, then rerun `flutter build apk --debug` with approved Gradle access and execute the Android emulator, physical-device, accessibility, lifecycle, performance, and signed-AAB gates
+- Unresolved blockers: both Gradle artifact download and `git push` require denied network access; escalation was rejected because the environment usage limit was reached. GitHub CLI authentication also reports an invalid stored token.
 
 ## Stable decisions
 

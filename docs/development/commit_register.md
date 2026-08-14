@@ -16,5 +16,6 @@ Repository-local author: `Sanskar <sanskarin@outlook.in>`
 | `200d459` | `feat: deliver responsive offline puzzle experience` | Complete application UI, boards, settings, editor, support, tests, integration source, and pseudolocalization |
 | `a1481b5` | `build: finish Android launch branding` | Legacy/round icons, Android 12 splash resources, and current Flutter minimum-SDK configuration |
 | `82fc283` | `docs: prepare source alpha release materials` | Source-alpha notes, store metadata, dependency review, and evidence-aware release checklist |
+| `266436e` | `docs: record source alpha validation evidence` | Continuity, test matrix, release-gate evidence, and implementation commit register |
 
-Later publish/audit commits can be read directly from `git log`; this register records the implementation batches that another task needs to understand before continuing.
+The final publication-blocker log commit can be read directly from `git log`; this register records the implementation batches that another task needs to understand before continuing.
