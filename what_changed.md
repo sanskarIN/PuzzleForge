@@ -319,6 +319,7 @@ gradlew.bat assembleDebug assembleRelease bundleRelease --no-daemon --offline
 - Full Flutter test suite: passed all 43 tests.
 - Direct Gradle debug build: passed with JDK 17.
 - Direct Gradle release APK and AAB build: passed with JDK 17; release lint passed after the Android fixes above.
+- `apksigner verify --verbose` correctly rejects the release APK as unsigned (`Missing META-INF/MANIFEST.MF`); this is expected until the protected upload keystore is configured.
 - First release attempt with JDK 26 failed in `JdkImageTransform`; this was an environment/toolchain failure, not a Dart source failure. The reproducible JDK 17 command is documented in `docs/release/android_artifacts.md`.
 - The exact output paths, sizes, and SHA-256 hashes are recorded in `docs/release/android_artifacts.md`.
 

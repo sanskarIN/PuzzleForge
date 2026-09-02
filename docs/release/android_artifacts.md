@@ -14,6 +14,8 @@ These files are generated under the ignored `build/` directory and are available
 
 The APKs can be installed for QA, but the release APK/AAB are not production-signed. Do not upload them to Google Play. Create an upload keystore outside the repository, configure the protected Gradle signing properties, rebuild, and verify the signed bundle before distribution.
 
+`apksigner verify --verbose` was run against the release APK and correctly reported `DOES NOT VERIFY` with `Missing META-INF/MANIFEST.MF`; the unsigned state is intentional and is a release gate, not a build failure.
+
 ## Reproducible command
 
 From `android/`, select JDK 17 and use the populated Gradle cache:
