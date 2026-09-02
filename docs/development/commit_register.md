@@ -23,5 +23,6 @@ Repository-local author: `Sanskar <sanskarin@outlook.in>`
 | `95bdf32` | `docs: record Android artifacts and remaining release gates` | APK/AAB evidence, hashes, updated QA matrix, publication state, and remaining release work |
 | `1cb205e` | `fix: make plugin registrant override reproducible` | Tracked registrant template and Gradle restore hook that survives Flutter regeneration |
 | `d6e3f10` | `docs: refresh final debug artifact hash` | Final debug APK size/hash after the reproducible registrant hook was enabled |
+| `76335fd` | `docs: record artifact signing verification` | Explicit unsigned APK verification evidence and final release-gate note |
 
 All commits use the repository-local author email `sanskarin@outlook.in`. The generated APK/AAB binaries remain outside Git; their exact local paths and SHA-256 hashes are recorded in `docs/release/android_artifacts.md`.
