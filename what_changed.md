@@ -324,7 +324,7 @@ gradlew.bat assembleDebug assembleRelease bundleRelease --no-daemon --offline
 
 ### Available Android executables
 
-- Debug APK: `E:\Games\PuzzleForge\build\app\outputs\flutter-apk\app-debug.apk`
+- Debug APK: `E:\Games\PuzzleForge\build\app\outputs\flutter-apk\app-debug.apk` (156,669,243 bytes; SHA-256 `BC1BBC613A88F366C7828C839F0B1796ACFF81AF5C7B17DA5A21E9B73564DFAC`)
 - Unsigned release APK: `E:\Games\PuzzleForge\build\app\outputs\flutter-apk\app-release.apk`
 - Unsigned release AAB: `E:\Games\PuzzleForge\build\app\outputs\bundle\release\app-release.aab`
 

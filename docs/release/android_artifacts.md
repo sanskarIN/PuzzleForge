@@ -8,7 +8,7 @@ These files are generated under the ignored `build/` directory and are available
 
 | Artifact | Absolute path | Size | SHA-256 |
 |---|---|---:|---|
-| Debug APK | `E:\Games\PuzzleForge\build\app\outputs\flutter-apk\app-debug.apk` | 156,667,673 bytes | `A73E37B2C5A86653B4FD34AE9BE9D3D5562C19F3DD50F539ADCD3FB5DA07A16F` |
+| Debug APK | `E:\Games\PuzzleForge\build\app\outputs\flutter-apk\app-debug.apk` | 156,669,243 bytes | `BC1BBC613A88F366C7828C839F0B1796ACFF81AF5C7B17DA5A21E9B73564DFAC` |
 | Release APK (unsigned) | `E:\Games\PuzzleForge\build\app\outputs\flutter-apk\app-release.apk` | 54,422,872 bytes | `F89D738AD45DD91C0F4DC383EE832C00EBFF427331C992A868B6413D9CF71975` |
 | Release AAB (unsigned) | `E:\Games\PuzzleForge\build\app\outputs\bundle\release\app-release.aab` | 53,221,934 bytes | `52FB57F21051C35A93FBC88DA9B193C0E8353D05777D26921ACFE6B88A64EC6A` |
 
