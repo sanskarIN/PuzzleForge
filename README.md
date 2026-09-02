@@ -22,7 +22,7 @@ PuzzleForge is under active development. See [PROJECT_STATUS.md](PROJECT_STATUS.
 
 ## Run locally
 
-Prerequisites: Flutter 3.44.7 stable, Dart 3.12.2, Android Studio/Android SDK, JDK 17, and an Android device or emulator.
+Prerequisites: Flutter 3.44.7 or newer stable (before Flutter 4), Dart 3.12.2 or newer compatible stable, Android Studio/Android SDK, JDK 17, and an Android device or emulator.
 
 ```bash
 flutter pub get
