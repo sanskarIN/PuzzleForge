@@ -22,7 +22,7 @@ Release status: source alpha, not a production release candidate. Android artifa
 - Credential-pattern scan: no candidate credentials found.
 - Resolved Dart dependency license-file and bundled-asset manifest review: passed for this source snapshot.
 
-`flutter build apk --debug` could not finish because Gradle required a network artifact and the execution sandbox denied that connection; the approval retry was rejected by the environment usage limit. No Android build success is claimed. See `docs/development/known_issues.md` and `docs/testing/test_matrix.md` before distribution.
+Unsigned Android artifacts are now built successfully with Gradle 9.1.0, AGP 9.0.1, and JDK 17. Exact local paths, SHA-256 hashes, and the reproducible command are recorded in `docs/release/android_artifacts.md`. Signing, device execution, accessibility, performance, and store-review gates remain open; do not distribute these files as a production release.
 
 ## Privacy and support
 

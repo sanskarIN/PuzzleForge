@@ -12,7 +12,10 @@
 | Android resources | XML parse plus AAPT2 compile/link against Android API 36 | Passed |
 | Repository security | credential-pattern scan excluding generated/cache directories | Passed; no candidate credentials found |
 | Licensing | resolved Dart package license-file and bundled-asset manifest review | Passed for the source alpha; repeat after dependency changes |
-| Integration test source | `integration_test/app_test.dart` | Authored; not executed because no Android target/build is available |
-| Android | `flutter build apk --debug` | Blocked before compilation while Gradle attempted a denied network download; approval retry rejected by environment usage limit |
+| Integration test source | `integration_test/app_test.dart` | Authored; Android device execution remains pending |
+| Android debug artifact | Gradle `assembleDebug --no-daemon --offline` with JDK 17 | Passed; APK produced and hashed in `docs/release/android_artifacts.md` |
+| Android release APK | Gradle `assembleRelease --no-daemon --offline` with JDK 17 | Passed; unsigned APK produced and hashed in `docs/release/android_artifacts.md` |
+| Android release bundle | Gradle `bundleRelease --no-daemon --offline` with JDK 17 | Passed; unsigned AAB produced and hashed in `docs/release/android_artifacts.md` |
+| Android device/instrumentation | Emulator or physical device | Pending; includes integration test, TalkBack, lifecycle, orientation, low-memory, and performance checks |
 
 Detailed test ownership and release evidence are added as features are implemented.

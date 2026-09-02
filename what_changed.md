@@ -287,3 +287,58 @@ git push -u origin agent/complete-project
 ### Exact next action
 
 When outbound GitHub access is available, run `git push -u origin agent/complete-project`. Then authenticate the GitHub CLI with `gh auth login --hostname github.com` and create a draft pull request from `agent/complete-project` to `main`. Do not rebuild, squash, or replace the existing commit history.
+
+## 2026-09-02 — Android artifacts and release hardening
+
+### Toolchain compatibility
+
+- Relaxed the Flutter SDK constraint from the original exact `3.44.7` pin to `>=3.44.7 <4.0.0` so the source remains compatible with newer stable Flutter 3 releases while keeping Dart `>=3.12.2`.
+- Regenerated the lockfile with Flutter 3.47.0 and kept the generated analyzer exclusions synchronized with the current Flutter template.
+- Updated the README and Flutter/Dart technology note to document the supported stable range and JDK 17 requirement.
+- Fixed `ExternalLinkService` to await `launchUrl`, satisfying the current analyzer's `unawaited_return_in_try_block` diagnostic.
+
+### Android release fixes
+
+- Replaced the ignored/generated `GeneratedPluginRegistrant.java` with a tracked app-owned registrant. The debug-only `integration_test` plugin is registered reflectively when present and skipped when absent, so release Java compilation does not depend on a test-only class.
+- Added the Android gitignore exception required to retain the tracked registrant on a clean checkout.
+- Simplified backup/data-extraction rules to include only shared preferences. This is the app's only persisted domain and avoids AGP 9's fatal `FullBackupContent` lint errors caused by excludes outside an included path.
+- Kept release shrinking enabled and validated release lint, resource processing, Java/Kotlin compilation, R8, APK packaging, and bundle packaging.
+
+### Build commands and evidence
+
+```text
+dart format --output=none --set-exit-if-changed lib test integration_test
+flutter analyze --fatal-infos
+flutter test -r expanded
+cd android
+gradlew.bat assembleDebug assembleRelease bundleRelease --no-daemon --offline
+```
+
+- Formatter: passed; 52 files checked.
+- Analyzer: passed with no issues after the `ExternalLinkService` await fix.
+- Full Flutter test suite: passed all 43 tests.
+- Direct Gradle debug build: passed with JDK 17.
+- Direct Gradle release APK and AAB build: passed with JDK 17; release lint passed after the Android fixes above.
+- First release attempt with JDK 26 failed in `JdkImageTransform`; this was an environment/toolchain failure, not a Dart source failure. The reproducible JDK 17 command is documented in `docs/release/android_artifacts.md`.
+- The exact output paths, sizes, and SHA-256 hashes are recorded in `docs/release/android_artifacts.md`.
+
+### Available Android executables
+
+- Debug APK: `E:\Games\PuzzleForge\build\app\outputs\flutter-apk\app-debug.apk`
+- Unsigned release APK: `E:\Games\PuzzleForge\build\app\outputs\flutter-apk\app-release.apk`
+- Unsigned release AAB: `E:\Games\PuzzleForge\build\app\outputs\bundle\release\app-release.aab`
+
+These artifacts are intentionally left outside Git because the generated APK/AAB files are large. They are suitable for local QA only; the release outputs still require protected signing.
+
+### Publication state
+
+- `agent/complete-project` is now published and tracks `origin/agent/complete-project` at `https://github.com/sanskarIN/PuzzleForge.git`.
+- The stored GitHub CLI token remains invalid, so a draft pull request was not created. Renew authentication with `gh auth login --hostname github.com` before opening one.
+
+### Remaining work
+
+1. Create and protect the Android upload keystore outside the repository, configure release signing, rebuild the signed AAB, and retain mapping/symbol files securely.
+2. Install the debug/release APK on representative phone and tablet API levels; execute the integration journey, TalkBack/large-text/high-contrast/reduced-motion/keyboard paths, orientation and background/resume checks, low-memory recovery, and profile performance checks.
+3. Verify every enabled generator across difficulties, save/resume/undo/redo/daily-seed/hint/progression invariants, and graceful external-link failures on device.
+4. Complete privacy, terms, content rating, Data Safety, screenshots, feature graphic, legal, and Play pre-launch review; then verify application ID, version code, target SDK, backup policy, R8 mapping, and signed bundle before any store upload.
+5. Renew GitHub CLI authentication and open the draft pull request if project review is desired.
