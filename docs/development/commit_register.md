@@ -17,5 +17,10 @@ Repository-local author: `Sanskar <sanskarin@outlook.in>`
 | `a1481b5` | `build: finish Android launch branding` | Legacy/round icons, Android 12 splash resources, and current Flutter minimum-SDK configuration |
 | `82fc283` | `docs: prepare source alpha release materials` | Source-alpha notes, store metadata, dependency review, and evidence-aware release checklist |
 | `266436e` | `docs: record source alpha validation evidence` | Continuity, test matrix, release-gate evidence, and implementation commit register |
+| `a837b7e` | `docs: record GitHub publication blocker` | Historical publication attempt and safe continuation pointer |
+| `5680553` | `fix: harden Android release plugin registration` | Optional integration-test registration and AGP-valid backup/data-extraction rules |
+| `ab7d0cb` | `build: support current Flutter stable toolchain` | Flutter 3 compatibility range, refreshed lockfile, analyzer fix, and toolchain documentation |
+| `95bdf32` | `docs: record Android artifacts and remaining release gates` | APK/AAB evidence, hashes, updated QA matrix, publication state, and remaining release work |
+| `1cb205e` | `fix: make plugin registrant override reproducible` | Tracked registrant template and Gradle restore hook that survives Flutter regeneration |
 
-The final publication-blocker log commit can be read directly from `git log`; this register records the implementation batches that another task needs to understand before continuing.
+All commits use the repository-local author email `sanskarin@outlook.in`. The generated APK/AAB binaries remain outside Git; their exact local paths and SHA-256 hashes are recorded in `docs/release/android_artifacts.md`.

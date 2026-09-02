@@ -1,6 +1,6 @@
 # Android Build Artifacts
 
-Verified on 2026-09-02 from commit `a837b7e` plus the release-build fixes in the working tree.
+Verified on 2026-09-02 from the release-hardening commit series ending at `1cb205e`.
 
 ## Local outputs
 
