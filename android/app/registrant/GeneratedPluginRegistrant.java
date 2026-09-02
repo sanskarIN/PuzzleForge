@@ -8,7 +8,7 @@ import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 
 /**
- * App-owned plugin registrant.
+ * App-owned plugin registrant template.
  *
  * The integration_test plugin is present only in debug/instrumented builds.
  * Registering it reflectively keeps release APK/AAB compilation independent

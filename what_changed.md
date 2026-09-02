@@ -299,8 +299,8 @@ When outbound GitHub access is available, run `git push -u origin agent/complete
 
 ### Android release fixes
 
-- Replaced the ignored/generated `GeneratedPluginRegistrant.java` with a tracked app-owned registrant. The debug-only `integration_test` plugin is registered reflectively when present and skipped when absent, so release Java compilation does not depend on a test-only class.
-- Added the Android gitignore exception required to retain the tracked registrant on a clean checkout.
+- Added a tracked app-owned `android/app/registrant/GeneratedPluginRegistrant.java` template and a Gradle restore task. Flutter may regenerate its ignored registrant during `compileFlutterBuild*`; the restore hook copies the template afterward and keeps the release build independent of debug-only plugins on every checkout/build.
+- The debug-only `integration_test` plugin is registered reflectively when present and skipped when absent, while shared_preferences and url_launcher remain direct registrations.
 - Simplified backup/data-extraction rules to include only shared preferences. This is the app's only persisted domain and avoids AGP 9's fatal `FullBackupContent` lint errors caused by excludes outside an included path.
 - Kept release shrinking enabled and validated release lint, resource processing, Java/Kotlin compilation, R8, APK packaging, and bundle packaging.
 
