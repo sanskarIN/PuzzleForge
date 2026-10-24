@@ -28,6 +28,9 @@ class _GameScreenState extends State<GameScreen> {
       _session?.removeListener(_onSessionChanged);
       _session = session;
       _session?.addListener(_onSessionChanged);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted && identical(_session, session)) session?.resume();
+      });
     }
     _timer ??= Timer.periodic(const Duration(seconds: 1), (_) {
       if (mounted &&

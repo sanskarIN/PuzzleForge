@@ -47,4 +47,15 @@ void main() {
     final restored = PlayerProgress.fromJson(progress.toJson());
     expect(restored.toJson(), progress.toJson());
   });
+
+  test('an older completion cannot rewind the latest daily streak', () {
+    final progress = PlayerProgress();
+    progress.award(record('one', DateTime(2026, 10, 22)), isDaily: true);
+    progress.award(record('two', DateTime(2026, 10, 23)), isDaily: true);
+    progress.award(record('older', DateTime(2026, 10, 21)), isDaily: true);
+    expect(progress.currentStreak, 2);
+    expect(progress.lastDailyDate!.day, 23);
+    progress.award(record('three', DateTime(2026, 10, 24)), isDaily: true);
+    expect(progress.currentStreak, 3);
+  });
 }

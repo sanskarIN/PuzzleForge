@@ -34,6 +34,12 @@ class AppController extends ChangeNotifier {
   Object? lastError;
   Future<void> _writeQueue = Future<void>.value();
   bool _completionHandled = false;
+  bool _disposed = false;
+
+  DateTime get currentDate => _clock();
+
+  PuzzleCatalogEntry get dailyPuzzle =>
+      PuzzleCatalog.entries[currentDate.day % PuzzleCatalog.entries.length];
 
   bool get hasActiveSession =>
       activeSession != null && !activeSession!.state.solved;
@@ -66,7 +72,11 @@ class AppController extends ChangeNotifier {
             throw const FormatException('Missing session module');
           final module = PuzzleCatalog.byId(moduleId).module;
           _attachSession(
-            PuzzleSessionController.restore(json: savedSession, module: module),
+            PuzzleSessionController.restore(
+              json: savedSession,
+              module: module,
+              clock: _clock,
+            )..pause(),
           );
         } catch (error) {
           lastError = error;
@@ -129,6 +139,7 @@ class AppController extends ChangeNotifier {
         mode: mode,
         initialState: initial,
         hintTokens: progress.hintTokens,
+        clock: _clock,
       ),
     );
     await _persistActive();
@@ -138,19 +149,21 @@ class AppController extends ChangeNotifier {
   Future<void> updateSettings(AppSettings value) async {
     settings = value;
     notifyListeners();
-    await _repository.saveSettings(settings);
+    await _enqueueWrite(() => _repository.saveSettings(value));
   }
 
   Future<void> toggleFavorite(String moduleId) async {
     if (!progress.favorites.add(moduleId)) progress.favorites.remove(moduleId);
     notifyListeners();
-    await _repository.saveProgress(progress);
+    final snapshot = _progressSnapshot();
+    await _enqueueWrite(() => _repository.saveProgress(snapshot));
   }
 
   Future<void> clearHistory() async {
     progress.history.clear();
     notifyListeners();
-    await _repository.saveProgress(progress);
+    final snapshot = _progressSnapshot();
+    await _enqueueWrite(() => _repository.saveProgress(snapshot));
   }
 
   Future<void> deleteAllData() async {
@@ -162,7 +175,7 @@ class AppController extends ChangeNotifier {
     noticeKey = null;
     lastError = null;
     _completionHandled = false;
-    await _repository.deleteAllData();
+    await _enqueueWrite(_repository.deleteAllData);
     notifyListeners();
   }
 
@@ -171,7 +184,7 @@ class AppController extends ChangeNotifier {
     activeSession?.dispose();
     activeSession = null;
     _completionHandled = false;
-    await _repository.deleteSession();
+    await _enqueueWrite(_repository.deleteSession);
     notifyListeners();
   }
 
@@ -199,21 +212,26 @@ class AppController extends ChangeNotifier {
       importedSession = PuzzleSessionController.restore(
         json: payload.activeSession!,
         module: PuzzleCatalog.byId(moduleId).module,
-      );
+        clock: _clock,
+      )..pause();
     }
-    await _repository.saveSettings(importedSettings);
-    await _repository.saveProgress(importedProgress);
-    if (importedSession == null) {
-      await _repository.deleteSession();
-    } else {
-      await _repository.saveSession(importedSession.toJson());
-    }
+    final sessionSnapshot = importedSession?.toJson();
+    final progressSnapshot = PlayerProgress.fromJson(importedProgress.toJson());
     activeSession?.removeListener(_onSessionChanged);
     activeSession?.dispose();
     settings = importedSettings;
     progress = importedProgress;
     activeSession = null;
     if (importedSession != null) _attachSession(importedSession);
+    await _enqueueWrite(() async {
+      await _repository.saveSettings(importedSettings);
+      await _repository.saveProgress(progressSnapshot);
+      if (sessionSnapshot == null) {
+        await _repository.deleteSession();
+      } else {
+        await _repository.saveSession(sessionSnapshot);
+      }
+    });
     notifyListeners();
   }
 
@@ -226,7 +244,9 @@ class AppController extends ChangeNotifier {
 
   void _attachSession(PuzzleSessionController session) {
     activeSession = session;
-    _completionHandled = session.state.solved;
+    _completionHandled =
+        session.state.solved ||
+        progress.awardedCompletionIds.contains(session.sessionId);
     session.addListener(_onSessionChanged);
   }
 
@@ -236,25 +256,26 @@ class AppController extends ChangeNotifier {
     progress.hintTokens = session.hintTokens;
     final solved = session.state.solved;
     final shouldRecordCompletion = solved && !_completionHandled;
-    if (shouldRecordCompletion) _completionHandled = true;
+    if (shouldRecordCompletion) {
+      _completionHandled = true;
+      _recordCompletion(session);
+    }
     final sessionSnapshot = session.toJson();
-    _writeQueue = _writeQueue
-        .then((_) async {
-          await _repository.saveProgress(progress);
-          if (shouldRecordCompletion) {
-            await _recordCompletion(session);
-          } else if (!solved) {
-            await _repository.saveSession(sessionSnapshot);
-          }
-        })
-        .catchError((Object error) {
-          lastError = error;
-          notifyListeners();
-        });
+    final progressSnapshot = _progressSnapshot();
+    unawaited(
+      _enqueueWrite(() async {
+        await _repository.saveProgress(progressSnapshot);
+        if (solved) {
+          await _repository.deleteSession();
+        } else {
+          await _repository.saveSession(sessionSnapshot);
+        }
+      }).catchError((Object _) {}),
+    );
     notifyListeners();
   }
 
-  Future<void> _recordCompletion(PuzzleSessionController session) async {
+  void _recordCompletion(PuzzleSessionController session) {
     final today = _clock();
     final record = CompletionRecord(
       id: session.sessionId,
@@ -267,21 +288,37 @@ class AppController extends ChangeNotifier {
       hintsUsed: session.hintsUsed,
     );
     progress.award(record, isDaily: session.mode == PlayMode.daily);
-    await _repository.saveProgress(progress);
-    await _repository.deleteSession();
-    notifyListeners();
   }
 
-  Future<void> _persistActive() async {
+  Future<void> _persistActive() {
     final session = activeSession;
-    if (session == null || session.state.solved) return;
+    if (session == null || session.state.solved) return _writeQueue;
     progress.hintTokens = session.hintTokens;
-    await _repository.saveProgress(progress);
-    await _repository.saveSession(session.toJson());
+    final progressSnapshot = _progressSnapshot();
+    final sessionSnapshot = session.toJson();
+    return _enqueueWrite(() async {
+      await _repository.saveProgress(progressSnapshot);
+      await _repository.saveSession(sessionSnapshot);
+    });
+  }
+
+  PlayerProgress _progressSnapshot() =>
+      PlayerProgress.fromJson(progress.toJson());
+
+  Future<void> _enqueueWrite(Future<void> Function() operation) {
+    final write = _writeQueue.then((_) => operation());
+    // Keep the queue usable after an I/O error while still reporting the error
+    // to callers that explicitly await their write.
+    _writeQueue = write.catchError((Object error) {
+      lastError = error;
+      if (!_disposed) notifyListeners();
+    });
+    return write;
   }
 
   @override
   void dispose() {
+    _disposed = true;
     activeSession?.removeListener(_onSessionChanged);
     activeSession?.dispose();
     super.dispose();

@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '../core/localization/app_localizations.dart';
 import '../core/theme/app_theme.dart';
+import '../features/gameplay/puzzle_session_controller.dart';
 import '../features/settings/app_settings.dart';
 import '../screens/home_screen.dart';
 import '../screens/splash_screen.dart';
@@ -20,6 +21,8 @@ class PuzzlePathApp extends StatefulWidget {
 
 class _PuzzlePathAppState extends State<PuzzlePathApp>
     with WidgetsBindingObserver {
+  PuzzleSessionController? _lifecyclePausedSession;
+
   @override
   void initState() {
     super.initState();
@@ -31,9 +34,20 @@ class _PuzzlePathAppState extends State<PuzzlePathApp>
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.inactive ||
         state == AppLifecycleState.paused ||
+        state == AppLifecycleState.hidden ||
         state == AppLifecycleState.detached) {
-      widget.controller.activeSession?.pause();
+      final session = widget.controller.activeSession;
+      if (session != null && !session.isPaused && !session.state.solved) {
+        _lifecyclePausedSession = session;
+        session.pause();
+      }
       widget.controller.persistSession();
+    } else if (state == AppLifecycleState.resumed) {
+      final session = _lifecyclePausedSession;
+      _lifecyclePausedSession = null;
+      if (identical(session, widget.controller.activeSession)) {
+        session?.resume();
+      }
     }
   }
 

@@ -23,8 +23,7 @@ class HomeScreen extends StatelessWidget {
     final controller = ControllerScope.of(context);
     final width = MediaQuery.sizeOf(context).width;
     final contentWidth = width >= 1000 ? 1120.0 : 760.0;
-    final dailyEntry = PuzzleCatalog
-        .entries[DateTime.now().day % PuzzleCatalog.entries.length];
+    final dailyEntry = controller.dailyPuzzle;
     return Scaffold(
       appBar: AppBar(
         title: Row(
