@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:puzzle_forge/features/progression/player_progress.dart';
+import 'package:puzzle_path/features/progression/player_progress.dart';
 
 CompletionRecord record(String id, DateTime date, {int hints = 0}) =>
     CompletionRecord(

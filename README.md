@@ -1,14 +1,16 @@
-# PuzzleForge
+# Puzzle Path
 
 **Think deeper. Solve smarter.**
 
-PuzzleForge is an open-source, offline-first puzzle collection built with Flutter for Android. It provides deterministic daily challenges, accessible board interactions, local progress, undo/redo, hints, and a modular engine designed for new puzzle types.
+Puzzle Path is an open-source, offline-first puzzle collection built with Flutter for Android. It provides deterministic daily challenges, accessible board interactions, local progress, undo/redo, hints, and a modular engine designed for new puzzle types.
 
 > Made by the Sanskar
 
+Previously called PuzzleForge. The public app name is now **Puzzle Path**. The Android application ID, saved-data keys, backup format, and versioned puzzle seeds retain their original identifiers so existing installations and backups remain compatible. The repository remains at `sanskarIN/PuzzleForge`.
+
 ## Project state
 
-PuzzleForge is under active development. See [PROJECT_STATUS.md](PROJECT_STATUS.md), [ROADMAP.md](ROADMAP.md), and [what_changed.md](what_changed.md) before treating a build as release-ready.
+Puzzle Path is under active development. See [PROJECT_STATUS.md](PROJECT_STATUS.md), [ROADMAP.md](ROADMAP.md), and [what_changed.md](what_changed.md) before treating a build as release-ready.
 
 ## Highlights
 

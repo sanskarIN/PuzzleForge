@@ -1,8 +1,8 @@
 # Branding
 
-PuzzleForge uses an original forge-spark and puzzle-grid visual language. The palette combines deep indigo, warm ember orange, and accessible cyan accents. Wordmarks use platform fonts to avoid bundling unlicensed font files.
+Puzzle Path uses an original forge-spark and puzzle-grid visual language. The palette combines deep indigo, warm ember orange, and accessible cyan accents. Wordmarks use platform fonts to avoid bundling unlicensed font files.
 
-- Canonical name: PuzzleForge
+- Canonical name: Puzzle Path
 - Tagline: Think deeper. Solve smarter.
 - Creator line: Made by the Sanskar
 - Support call to action: Support this project — Buy Me a Coffee

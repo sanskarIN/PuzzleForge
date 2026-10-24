@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
   <title id="title">Support this project — Buy Me a Coffee</title>
-  <desc id="desc">An original PuzzleForge coffee cup with heart-shaped steam and a forge spark.</desc>
+  <desc id="desc">An original Puzzle Path coffee cup with heart-shaped steam and a forge spark.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#312E81"/><stop offset="1" stop-color="#0F766E"/></linearGradient>
   </defs>

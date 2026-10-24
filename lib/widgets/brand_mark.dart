@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/localization/app_localizations.dart';
+
 class BrandMark extends StatelessWidget {
   const BrandMark({this.size = 72, super.key});
 
@@ -10,7 +12,7 @@ class BrandMark extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
     return Semantics(
       image: true,
-      label: 'PuzzleForge',
+      label: context.strings.text('app.name'),
       child: SizedBox.square(
         dimension: size,
         child: CustomPaint(painter: _BrandMarkPainter(scheme)),

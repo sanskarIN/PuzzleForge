@@ -9,16 +9,16 @@ import '../screens/splash_screen.dart';
 import 'app_controller.dart';
 import 'controller_scope.dart';
 
-class PuzzleForgeApp extends StatefulWidget {
-  const PuzzleForgeApp({required this.controller, super.key});
+class PuzzlePathApp extends StatefulWidget {
+  const PuzzlePathApp({required this.controller, super.key});
 
   final AppController controller;
 
   @override
-  State<PuzzleForgeApp> createState() => _PuzzleForgeAppState();
+  State<PuzzlePathApp> createState() => _PuzzlePathAppState();
 }
 
-class _PuzzleForgeAppState extends State<PuzzleForgeApp>
+class _PuzzlePathAppState extends State<PuzzlePathApp>
     with WidgetsBindingObserver {
   @override
   void initState() {
@@ -52,7 +52,7 @@ class _PuzzleForgeAppState extends State<PuzzleForgeApp>
         builder: (context, _) {
           final settings = widget.controller.settings;
           return MaterialApp(
-            title: 'PuzzleForge',
+            title: 'Puzzle Path',
             debugShowCheckedModeBanner: false,
             locale: Locale(settings.localeCode),
             supportedLocales: AppLocalizations.supportedLocales,

@@ -2,7 +2,7 @@
 
 ## Our pledge
 
-We pledge to make participation in PuzzleForge welcoming and harassment-free for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, experience, education, socioeconomic status, nationality, appearance, race, caste, color, religion, or sexual identity and orientation.
+We pledge to make participation in Puzzle Path welcoming and harassment-free for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, experience, education, socioeconomic status, nationality, appearance, race, caste, color, religion, or sexual identity and orientation.
 
 ## Expected behavior
 

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:puzzle_forge/features/gameplay/puzzle_session_controller.dart';
-import 'package:puzzle_forge/puzzles/core/puzzle_models.dart';
-import 'package:puzzle_forge/puzzles/modules/number_sequence_module.dart';
+import 'package:puzzle_path/features/gameplay/puzzle_session_controller.dart';
+import 'package:puzzle_path/puzzles/core/puzzle_models.dart';
+import 'package:puzzle_path/puzzles/modules/number_sequence_module.dart';
 
 void main() {
   const module = NumberSequenceModule();

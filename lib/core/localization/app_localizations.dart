@@ -75,7 +75,7 @@ class AppLocalizations {
       NumberFormat.decimalPattern(locale.toLanguageTag()).format(value);
 
   static const Map<String, String> _english = <String, String>{
-    'app.name': 'PuzzleForge',
+    'app.name': 'Puzzle Path',
     'app.tagline': 'Think deeper. Solve smarter.',
     'app.creator': 'Made by the Sanskar',
     'common.back': 'Back',
@@ -98,7 +98,7 @@ class AppLocalizations {
     'common.share': 'Share',
     'common.validate': 'Validate',
     'common.version': 'Version {version}',
-    'home.greeting': 'Ready to forge a solution?',
+    'home.greeting': 'Ready for your next puzzle?',
     'home.dailyTitle': 'Puzzle of the Day',
     'home.dailyBody': 'One deterministic challenge, available offline.',
     'home.playDaily': 'Play daily puzzle',
@@ -188,7 +188,7 @@ class AppLocalizations {
     'game.noTokens': 'You have no hint tokens left.',
     'game.hintRepeated': 'This hint was already shown; no token was charged.',
     'game.unsolvableMove': 'That move is not available.',
-    'result.title': 'Puzzle forged!',
+    'result.title': 'Puzzle solved!',
     'result.score': '{score} points',
     'result.moves': 'Moves',
     'result.time': 'Time',
@@ -280,7 +280,7 @@ class AppLocalizations {
     'settings.unlockProgress':
         'Tap {remaining} more times to unlock developer options.',
     'settings.unlocked': 'Developer options unlocked.',
-    'support.title': 'Support PuzzleForge',
+    'support.title': 'Support Puzzle Path',
     'support.bmc': 'Support this project — Buy Me a Coffee',
     'support.bmcLabel': 'Support Sanskar on Buy Me a Coffee',
     'support.optional':
@@ -288,8 +288,8 @@ class AppLocalizations {
     'support.openFailed':
         'Could not open the external app. The link is shown below.',
     'support.contact': 'Contact',
-    'about.title': 'About PuzzleForge',
-    'about.openSource': 'PuzzleForge is open source under the MIT License.',
+    'about.title': 'About Puzzle Path',
+    'about.openSource': 'Puzzle Path is open source under the MIT License.',
     'about.repository': 'View source on GitHub',
     'about.creator': 'Creator GitHub profile',
     'about.credits': 'Original design and development by Sanskar.',
@@ -298,7 +298,7 @@ class AppLocalizations {
     'legal.notices': 'Third-party notices',
     'legal.review':
         'Developer-prepared templates require legal review before commercial publication.',
-    'menu.title': 'Explore PuzzleForge',
+    'menu.title': 'Explore Puzzle Path',
     'menu.dailyChallenges': 'Daily challenges',
     'menu.campaign': 'Campaign',
     'menu.endless': 'Endless mode',
@@ -314,7 +314,7 @@ class AppLocalizations {
     'menu.editor': 'Puzzle editor',
     'empty.favorites': 'Favorite a puzzle to find it here.',
     'empty.history': 'Complete a puzzle to begin your history.',
-    'campaign.title': 'Forge Trail',
+    'campaign.title': 'Puzzle Trail',
     'campaign.body':
         'Complete puzzles across six difficulty worlds. Stars unlock each milestone.',
     'daily.title': 'Daily Brain Challenge',
@@ -326,7 +326,7 @@ class AppLocalizations {
     'statistics.hintFree': 'Hint-free wins',
     'achievements.title': 'Achievements',
     'achievement.hint_free_first': 'Independent thinker',
-    'achievement.ten_solutions': 'Ten forged solutions',
+    'achievement.ten_solutions': 'Ten puzzles solved',
     'achievement.master_score': 'Master score',
     'achievement.level_two': 'Rising solver',
     'achievement.seven_day_streak': 'Seven-day flame',
@@ -334,11 +334,11 @@ class AppLocalizations {
     'streak.body':
         'Complete one daily puzzle per local calendar date. Duplicate completions never increase the streak.',
     'themes.title': 'Board themes',
-    'theme.forge': 'Forge',
+    'theme.forge': 'Ember',
     'theme.ocean': 'Ocean',
     'theme.forest': 'Forest',
     'theme.mono': 'Monochrome',
-    'tutorial.title': 'How PuzzleForge works',
+    'tutorial.title': 'How Puzzle Path works',
     'tutorial.body':
         'Choose a module and difficulty, make legal moves, use undo when needed, and request progressive hints only when you want help.',
     'guide.title': 'Player guide',
@@ -369,7 +369,7 @@ class AppLocalizations {
     'data.backupReady': 'Backup JSON is ready below.',
     'data.imported': 'Backup imported successfully.',
     'data.invalid': 'Backup rejected: {error}',
-    'data.confirmDelete': 'Delete all PuzzleForge data from this device?',
+    'data.confirmDelete': 'Delete all Puzzle Path data from this device?',
     'data.deleted': 'Local data was deleted and safe defaults were restored.',
     'data.cacheCleared': 'Temporary cache is clear.',
     'notice.recovered':
@@ -379,7 +379,7 @@ class AppLocalizations {
   };
 
   static const Map<String, String> _hindi = <String, String>{
-    'app.name': 'PuzzleForge',
+    'app.name': 'Puzzle Path',
     'app.tagline': 'गहराई से सोचें। समझदारी से हल करें।',
     'app.creator': 'Made by the Sanskar',
     'common.back': 'वापस',
@@ -402,7 +402,7 @@ class AppLocalizations {
     'common.share': 'साझा करें',
     'common.validate': 'जाँचें',
     'common.version': 'संस्करण {version}',
-    'home.greeting': 'समाधान गढ़ने के लिए तैयार?',
+    'home.greeting': 'अगली पहेली के लिए तैयार?',
     'home.dailyTitle': 'आज की पहेली',
     'home.dailyBody': 'एक निश्चित ऑफलाइन चुनौती।',
     'home.playDaily': 'आज की पहेली खेलें',
@@ -573,15 +573,15 @@ class AppLocalizations {
     'settings.clearCache': 'कैश साफ करें',
     'settings.unlockProgress': 'डेवलपर विकल्प के लिए {remaining} बार और दबाएँ।',
     'settings.unlocked': 'डेवलपर विकल्प चालू हुए।',
-    'support.title': 'PuzzleForge का समर्थन',
+    'support.title': 'Puzzle Path का समर्थन',
     'support.bmc': 'इस प्रोजेक्ट का समर्थन करें — Buy Me a Coffee',
     'support.bmcLabel': 'Buy Me a Coffee पर Sanskar का समर्थन करें',
     'support.optional':
         'समर्थन वैकल्पिक है। मुख्य पहेलियाँ निष्पक्ष और सुगम रहती हैं।',
     'support.openFailed': 'बाहरी ऐप नहीं खुल सका। लिंक नीचे दिया है।',
     'support.contact': 'संपर्क',
-    'about.title': 'PuzzleForge के बारे में',
-    'about.openSource': 'PuzzleForge MIT लाइसेंस के अंतर्गत ओपन सोर्स है।',
+    'about.title': 'Puzzle Path के बारे में',
+    'about.openSource': 'Puzzle Path MIT लाइसेंस के अंतर्गत ओपन सोर्स है।',
     'about.repository': 'GitHub पर स्रोत देखें',
     'about.creator': 'निर्माता का GitHub प्रोफ़ाइल',
     'about.credits': 'मूल डिज़ाइन और विकास Sanskar द्वारा।',
@@ -590,7 +590,7 @@ class AppLocalizations {
     'legal.notices': 'तृतीय-पक्ष सूचनाएँ',
     'legal.review':
         'व्यावसायिक प्रकाशन से पहले इन डेवलपर टेम्पलेट की कानूनी समीक्षा आवश्यक है।',
-    'menu.title': 'PuzzleForge देखें',
+    'menu.title': 'Puzzle Path देखें',
     'menu.dailyChallenges': 'दैनिक चुनौतियाँ',
     'menu.campaign': 'अभियान',
     'menu.endless': 'अनंत मोड',
@@ -606,7 +606,7 @@ class AppLocalizations {
     'menu.editor': 'पहेली संपादक',
     'empty.favorites': 'पहेली को पसंदीदा बनाकर यहाँ पाएँ।',
     'empty.history': 'इतिहास शुरू करने के लिए पहेली पूरी करें।',
-    'campaign.title': 'फोर्ज ट्रेल',
+    'campaign.title': 'पहेली पथ',
     'campaign.body':
         'छह कठिनाई दुनियाओं में पहेलियाँ पूरी करें। तारे पड़ाव खोलते हैं।',
     'daily.title': 'दैनिक मस्तिष्क चुनौती',
@@ -617,7 +617,7 @@ class AppLocalizations {
     'statistics.hintFree': 'बिना संकेत जीत',
     'achievements.title': 'उपलब्धियाँ',
     'achievement.hint_free_first': 'स्वतंत्र विचारक',
-    'achievement.ten_solutions': 'दस गढ़े समाधान',
+    'achievement.ten_solutions': 'दस हल की पहेलियाँ',
     'achievement.master_score': 'मास्टर स्कोर',
     'achievement.level_two': 'उभरता हलकर्ता',
     'achievement.seven_day_streak': 'सात-दिन ज्वाला',
@@ -625,11 +625,11 @@ class AppLocalizations {
     'streak.body':
         'हर स्थानीय तारीख पर एक दैनिक पहेली पूरी करें। दोहराव लड़ी नहीं बढ़ाता।',
     'themes.title': 'बोर्ड थीम',
-    'theme.forge': 'फोर्ज',
+    'theme.forge': 'अंगार',
     'theme.ocean': 'महासागर',
     'theme.forest': 'वन',
     'theme.mono': 'एकरंगी',
-    'tutorial.title': 'PuzzleForge कैसे चलता है',
+    'tutorial.title': 'Puzzle Path कैसे चलता है',
     'tutorial.body':
         'मॉड्यूल और कठिनाई चुनें, वैध चाल चलें, जरूरत पर वापस जाएँ और सहायता चाहें तभी संकेत लें।',
     'guide.title': 'खिलाड़ी मार्गदर्शिका',
@@ -659,7 +659,7 @@ class AppLocalizations {
     'data.backupReady': 'बैकअप JSON नीचे तैयार है।',
     'data.imported': 'बैकअप सफलतापूर्वक आयात हुआ।',
     'data.invalid': 'बैकअप अस्वीकार: {error}',
-    'data.confirmDelete': 'इस डिवाइस का सारा PuzzleForge डेटा हटाएँ?',
+    'data.confirmDelete': 'इस डिवाइस का सारा Puzzle Path डेटा हटाएँ?',
     'data.deleted': 'स्थानीय डेटा हटाकर सुरक्षित डिफ़ॉल्ट लागू किए गए।',
     'data.cacheCleared': 'अस्थायी कैश साफ है।',
     'notice.recovered':

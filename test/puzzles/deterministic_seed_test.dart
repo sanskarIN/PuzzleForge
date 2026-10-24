@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:puzzle_forge/puzzles/core/deterministic_seed.dart';
+import 'package:puzzle_path/puzzles/core/deterministic_seed.dart';
 
 void main() {
   test('daily seed is stable within a calendar date', () {

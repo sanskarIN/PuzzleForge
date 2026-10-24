@@ -1,10 +1,10 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:puzzle_forge/app/app.dart';
-import 'package:puzzle_forge/app/app_controller.dart';
-import 'package:puzzle_forge/core/services/external_link_service.dart';
-import 'package:puzzle_forge/core/storage/app_repository.dart';
-import 'package:puzzle_forge/core/storage/key_value_store.dart';
+import 'package:puzzle_path/app/app.dart';
+import 'package:puzzle_path/app/app_controller.dart';
+import 'package:puzzle_path/core/services/external_link_service.dart';
+import 'package:puzzle_path/core/storage/app_repository.dart';
+import 'package:puzzle_path/core/storage/key_value_store.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -15,9 +15,9 @@ void main() {
       externalLinks: FakeExternalLinkService(),
       clock: () => DateTime.utc(2026, 8, 14),
     );
-    await tester.pumpWidget(PuzzleForgeApp(controller: controller));
+    await tester.pumpWidget(PuzzlePathApp(controller: controller));
     await tester.pumpAndSettle();
-    expect(find.text('PuzzleForge'), findsWidgets);
+    expect(find.text('Puzzle Path'), findsWidgets);
     await tester.tap(find.text('Sliding Tiles'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Beginner'));

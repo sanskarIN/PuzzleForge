@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-PuzzleForge's original source and artwork are MIT-licensed. Dependencies remain governed by their authors' licenses. Release engineering must generate and review the resolved dependency license report before distribution.
+Puzzle Path's original source and artwork are MIT-licensed. Dependencies remain governed by their authors' licenses. Release engineering must generate and review the resolved dependency license report before distribution.
 
 | Component | Purpose | License / source |
 |---|---|---|

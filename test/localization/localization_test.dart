@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/widgets.dart';
-import 'package:puzzle_forge/core/localization/app_localizations.dart';
+import 'package:puzzle_path/core/localization/app_localizations.dart';
 
 void main() {
   test('English and Hindi catalogs have identical keys', () {
