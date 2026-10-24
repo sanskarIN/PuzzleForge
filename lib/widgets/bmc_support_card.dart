@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../app/controller_scope.dart';
 import '../core/constants/app_links.dart';
 import '../core/localization/app_localizations.dart';
+import 'external_link_tile.dart';
 
 class BmcSupportCard extends StatelessWidget {
   const BmcSupportCard({this.compact = false, super.key});
@@ -13,15 +13,8 @@ class BmcSupportCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final strings = context.strings;
     final scheme = Theme.of(context).colorScheme;
-    Future<void> openSupport() async {
-      final opened = await ControllerScope.read(
-        context,
-      ).openExternal(AppLinks.buyMeACoffee);
-      if (!context.mounted || opened) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(strings.text('support.openFailed'))),
-      );
-    }
+    Future<void> openSupport() =>
+        openExternalLink(context, AppLinks.buyMeACoffee);
 
     return Semantics(
       button: true,

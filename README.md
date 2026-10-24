@@ -38,12 +38,16 @@ Run the app with `flutter run`. Release signing credentials must stay outside Gi
 
 ## Support the project
 
-[Support this project — Buy Me a Coffee](https://buymeacoffee.com/sanskarIN). Donations are optional, do not unlock gameplay, and do not receive guaranteed feature priority.
+[Support this project — Buy Me a Coffee](https://buymeacoffee.com/SanskarCodes). Donations are optional, do not unlock gameplay, and do not receive guaranteed feature priority.
 
-- Creator: [Sanskar](https://www.github.com/sanskarIN)
-- Support: [supportramsandesh@gmail.com](mailto:supportramsandesh@gmail.com)
-- Project: [sanskarin@outlook.in](mailto:sanskarin@outlook.in)
-- Business: [sanskarin.business@gmail.com](mailto:sanskarin.business@gmail.com)
+- Website: [sanskarin.github.io](https://sanskarin.github.io)
+- Creator: [Sanskar on GitHub](https://github.com/sanskarIN)
+- Main email and support: [sanskarcodes@gmail.com](mailto:sanskarcodes@gmail.com)
+- Business: [sanskar.businesswork@gmail.com](mailto:sanskar.businesswork@gmail.com)
+- Razorpay: [Support SanskarCodes](https://razorpay.me/@SanskarCodes)
+- PayPal: [Support SanskarCodes](https://paypal.me/SanskarCodes)
+
+All support links open an external app after a deliberate tap. Puzzle Path includes no payment SDK and does not process payments, track donations, or grant gameplay rewards for support. Git commits use `sanskarin@outlook.in` as the author email.
 
 ## Open source
 

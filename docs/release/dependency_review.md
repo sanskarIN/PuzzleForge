@@ -20,7 +20,7 @@ The complete direct attribution remains in `THIRD_PARTY_NOTICES.md`. Flutter gen
 
 ## Assets
 
-Every bundled file under `assets/` is listed in `assets/branding/ASSET_LICENSES.md`. The two support cards and Android forge-grid vectors are original project artwork under MIT. The artwork intentionally avoids copying the Buy Me a Coffee logo.
+Every bundled file under `assets/` is listed in `assets/branding/ASSET_LICENSES.md`. The two support cards and Android puzzle-grid vectors are original project artwork under MIT. The artwork intentionally avoids copying the Buy Me a Coffee logo.
 
 ## Result
 

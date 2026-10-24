@@ -48,7 +48,7 @@ void main() {
     await tester.pump();
     expect(
       links.opened.single.toString(),
-      'https://buymeacoffee.com/sanskarIN',
+      'https://buymeacoffee.com/SanskarCodes',
     );
     controller.dispose();
   });

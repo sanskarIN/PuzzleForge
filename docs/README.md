@@ -15,6 +15,6 @@ This documentation describes the implemented product, its constraints, and relea
 - [Security](security/threat_model.md)
 - [Monetization](monetization/README.md)
 - [Technology choices](technologies/README.md)
-- [Support on Buy Me a Coffee](https://buymeacoffee.com/sanskarIN)
+- [Support on Buy Me a Coffee](https://buymeacoffee.com/SanskarCodes)
 
 Made by the Sanskar.
