@@ -103,6 +103,7 @@ class AppController extends ChangeNotifier {
       PlayMode.custom =>
         customSeed ??
             DeterministicSeed.fromText(
+              // Retain the original seed so the rename preserves custom boards.
               settings.deterministicSeed.isEmpty
                   ? 'PuzzleForge'
                   : settings.deterministicSeed,

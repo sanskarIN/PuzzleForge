@@ -1,4 +1,4 @@
-# Contributing to PuzzleForge
+# Contributing to Puzzle Path
 
 Thank you for improving PuzzleForge. By participating, you agree to follow the Code of Conduct and license your contribution under the repository's MIT License unless a file clearly states otherwise.
 

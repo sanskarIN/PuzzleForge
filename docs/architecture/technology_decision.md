@@ -2,7 +2,7 @@
 
 - Status: accepted
 - Date: 2026-08-14
-- Scope: Android-first PuzzleForge application
+- Scope: Android-first Puzzle Path application
 
 ## Decision
 
@@ -10,7 +10,7 @@ Use Flutter 3.44.7 stable and Dart 3.12.2. Keep pure rule logic separate from Fl
 
 ## Rationale
 
-PuzzleForge needs custom 2D boards, strong semantics, adaptable layouts, localization, animation control, deterministic unit tests, and rapid Android iteration. Flutter satisfies those requirements with one coherent toolchain. Dart's immutable-data patterns and seeded `Random` support fit deterministic generators.
+Puzzle Path needs custom 2D boards, strong semantics, adaptable layouts, localization, animation control, deterministic unit tests, and rapid Android iteration. Flutter satisfies those requirements with one coherent toolchain. Dart's immutable-data patterns and seeded `Random` support fit deterministic generators.
 
 ## Alternatives
 

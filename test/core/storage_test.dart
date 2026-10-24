@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:puzzle_forge/core/storage/app_repository.dart';
-import 'package:puzzle_forge/core/storage/backup_codec.dart';
-import 'package:puzzle_forge/core/storage/key_value_store.dart';
-import 'package:puzzle_forge/features/progression/player_progress.dart';
-import 'package:puzzle_forge/features/settings/app_settings.dart';
+import 'package:puzzle_path/core/storage/app_repository.dart';
+import 'package:puzzle_path/core/storage/backup_codec.dart';
+import 'package:puzzle_path/core/storage/key_value_store.dart';
+import 'package:puzzle_path/features/progression/player_progress.dart';
+import 'package:puzzle_path/features/settings/app_settings.dart';
 
 void main() {
   test('repository saves and loads settings and progress', () async {

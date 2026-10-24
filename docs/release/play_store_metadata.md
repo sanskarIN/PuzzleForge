@@ -4,7 +4,7 @@ Status: draft for maintainer and legal review. Do not publish until the release 
 
 ## Identity
 
-- App name: PuzzleForge
+- App name: Puzzle Path
 - Package/application ID: `com.sanskarin.puzzleforge`
 - Version: `0.1.0+1`
 - Default language: English
@@ -18,7 +18,7 @@ Eight accessible offline puzzles, daily challenges, progress, hints, and more.
 
 ## Full description
 
-Think deeper. Solve smarter with PuzzleForge, an open-source, offline-first collection of logic and board puzzles built for focused play.
+Think deeper. Solve smarter with Puzzle Path, an open-source, offline-first collection of logic and board puzzles built for focused play.
 
 Explore eight original presentations of familiar puzzle mechanics: Sliding Tiles, Number Merge, Light Grid, Maze, Sudoku, Memory Match, Color Sort, and Number Sequence. Every enabled generator uses deterministic seeds and validates its opening before play. Daily content remains stable for the date and game version, even without a network connection.
 
@@ -47,7 +47,7 @@ Private by default:
 - Settings, saves, achievements, and statistics are stored locally.
 - Backup export/import is user controlled and integrity checked.
 
-PuzzleForge is open source under the MIT License. Contributions, security reporting, privacy details, and third-party notices are available in the public repository.
+Puzzle Path is open source under the MIT License. Contributions, security reporting, privacy details, and third-party notices are available in the public repository.
 
 Made by the Sanskar.
 

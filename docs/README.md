@@ -1,4 +1,4 @@
-# PuzzleForge Documentation
+# Puzzle Path Documentation
 
 This documentation describes the implemented product, its constraints, and release evidence. The source of truth for current completion is `PROJECT_STATUS.md`; future ideas are explicitly separated under `upcoming/`.
 

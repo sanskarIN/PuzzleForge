@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:puzzle_forge/puzzles/core/puzzle_models.dart';
-import 'package:puzzle_forge/puzzles/puzzle_catalog.dart';
+import 'package:puzzle_path/puzzles/core/puzzle_models.dart';
+import 'package:puzzle_path/puzzles/puzzle_catalog.dart';
 
 void main() {
   group('starter puzzle modules', () {

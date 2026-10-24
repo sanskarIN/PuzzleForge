@@ -1,4 +1,4 @@
-# PuzzleForge 0.1.0+1 Source Alpha
+# Puzzle Path 0.1.0+1 Source Alpha
 
 Release status: source alpha, not a production release candidate. Android artifact, device, accessibility, performance, signing, and store-review gates remain open.
 

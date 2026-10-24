@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:puzzle_forge/app/app_controller.dart';
-import 'package:puzzle_forge/core/services/external_link_service.dart';
-import 'package:puzzle_forge/core/storage/app_repository.dart';
-import 'package:puzzle_forge/core/storage/key_value_store.dart';
-import 'package:puzzle_forge/puzzles/core/puzzle_models.dart';
+import 'package:puzzle_path/app/app_controller.dart';
+import 'package:puzzle_path/core/services/external_link_service.dart';
+import 'package:puzzle_path/core/storage/app_repository.dart';
+import 'package:puzzle_path/core/storage/key_value_store.dart';
+import 'package:puzzle_path/puzzles/core/puzzle_models.dart';
 
 void main() {
   test('app controller persists and restores an active session', () async {

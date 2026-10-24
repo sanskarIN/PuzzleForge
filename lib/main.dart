@@ -10,7 +10,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final store = await SharedPreferencesKeyValueStore.create();
   runApp(
-    PuzzleForgeApp(
+    PuzzlePathApp(
       controller: AppController(
         repository: AppRepository(store),
         externalLinks: SafeExternalLinkService(),

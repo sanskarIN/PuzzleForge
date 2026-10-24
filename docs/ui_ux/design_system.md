@@ -1,6 +1,6 @@
 # Design System
 
-PuzzleForge uses Material 3 foundations with a compact custom token layer.
+Puzzle Path uses Material 3 foundations with a compact custom token layer.
 
 - Primary: indigo `#4F46E5`; dark primary `#A5B4FC`
 - Secondary: teal `#0F766E`; dark secondary `#5EEAD4`

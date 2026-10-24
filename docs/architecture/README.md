@@ -1,6 +1,6 @@
 # Architecture
 
-PuzzleForge uses a layered, feature-oriented Flutter architecture:
+Puzzle Path uses a layered, feature-oriented Flutter architecture:
 
 ```text
 UI screens and reusable widgets

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:puzzle_forge/app/app.dart';
-import 'package:puzzle_forge/app/app_controller.dart';
-import 'package:puzzle_forge/core/services/external_link_service.dart';
-import 'package:puzzle_forge/core/storage/app_repository.dart';
-import 'package:puzzle_forge/core/storage/key_value_store.dart';
-import 'package:puzzle_forge/widgets/bmc_support_card.dart';
-import 'package:puzzle_forge/widgets/puzzle_card.dart';
+import 'package:puzzle_path/app/app.dart';
+import 'package:puzzle_path/app/app_controller.dart';
+import 'package:puzzle_path/core/services/external_link_service.dart';
+import 'package:puzzle_path/core/storage/app_repository.dart';
+import 'package:puzzle_path/core/storage/key_value_store.dart';
+import 'package:puzzle_path/widgets/bmc_support_card.dart';
+import 'package:puzzle_path/widgets/puzzle_card.dart';
 
 void main() {
   testWidgets('home renders brand, daily content, puzzles, and support', (
@@ -17,9 +17,9 @@ void main() {
       externalLinks: FakeExternalLinkService(),
       clock: () => DateTime.utc(2026, 8, 14),
     );
-    await tester.pumpWidget(PuzzleForgeApp(controller: controller));
+    await tester.pumpWidget(PuzzlePathApp(controller: controller));
     await tester.pumpAndSettle();
-    expect(find.text('PuzzleForge'), findsWidgets);
+    expect(find.text('Puzzle Path'), findsWidgets);
     expect(find.text('Puzzle of the Day'), findsOneWidget);
     expect(find.widgetWithText(PuzzleCard, 'Sliding Tiles'), findsOneWidget);
     await tester.scrollUntilVisible(
@@ -39,7 +39,7 @@ void main() {
       repository: AppRepository(MemoryKeyValueStore()),
       externalLinks: links,
     );
-    await tester.pumpWidget(PuzzleForgeApp(controller: controller));
+    await tester.pumpWidget(PuzzlePathApp(controller: controller));
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(find.byType(BmcSupportCard), 500);
     await tester.ensureVisible(find.byType(BmcSupportCard));
@@ -58,7 +58,7 @@ void main() {
       repository: AppRepository(MemoryKeyValueStore()),
       externalLinks: FakeExternalLinkService(),
     );
-    await tester.pumpWidget(PuzzleForgeApp(controller: controller));
+    await tester.pumpWidget(PuzzlePathApp(controller: controller));
     await tester.pumpAndSettle();
     final tilesCard = find.widgetWithText(PuzzleCard, 'Sliding Tiles');
     await tester.ensureVisible(tilesCard);
@@ -80,7 +80,7 @@ void main() {
       repository: AppRepository(MemoryKeyValueStore()),
       externalLinks: FakeExternalLinkService(),
     );
-    await tester.pumpWidget(PuzzleForgeApp(controller: controller));
+    await tester.pumpWidget(PuzzlePathApp(controller: controller));
     await tester.pumpAndSettle();
     await tester.tap(find.byIcon(Icons.settings_outlined));
     await tester.pumpAndSettle();

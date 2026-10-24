@@ -3,13 +3,13 @@ import 'dart:ui' show SemanticsAction;
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:puzzle_forge/app/app_controller.dart';
-import 'package:puzzle_forge/app/controller_scope.dart';
-import 'package:puzzle_forge/core/localization/app_localizations.dart';
-import 'package:puzzle_forge/core/services/external_link_service.dart';
-import 'package:puzzle_forge/core/storage/app_repository.dart';
-import 'package:puzzle_forge/core/storage/key_value_store.dart';
-import 'package:puzzle_forge/widgets/bmc_support_card.dart';
+import 'package:puzzle_path/app/app_controller.dart';
+import 'package:puzzle_path/app/controller_scope.dart';
+import 'package:puzzle_path/core/localization/app_localizations.dart';
+import 'package:puzzle_path/core/services/external_link_service.dart';
+import 'package:puzzle_path/core/storage/app_repository.dart';
+import 'package:puzzle_path/core/storage/key_value_store.dart';
+import 'package:puzzle_path/widgets/bmc_support_card.dart';
 
 void main() {
   testWidgets(
