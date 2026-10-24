@@ -30,4 +30,4 @@ This alpha has no account, ad SDK, analytics SDK, purchase SDK, leaderboard, clo
 
 Made by the Sanskar.
 
-[Support this project — Buy Me a Coffee](https://buymeacoffee.com/sanskarIN). Support is optional and never unlocks gameplay or guarantees feature priority.
+[Support this project — Buy Me a Coffee](https://buymeacoffee.com/SanskarCodes). Support is optional and never unlocks gameplay or guarantees feature priority.

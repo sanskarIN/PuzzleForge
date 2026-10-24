@@ -51,7 +51,15 @@ Puzzle Path is open source under the MIT License. Contributions, security report
 
 Made by the Sanskar.
 
-Support is optional: https://buymeacoffee.com/sanskarIN
+Support is optional: https://buymeacoffee.com/SanskarCodes
+
+Creator website: https://sanskarin.github.io
+
+Additional optional support: https://razorpay.me/@SanskarCodes and https://paypal.me/SanskarCodes
+
+Main email: sanskarcodes@gmail.com
+
+Business: sanskar.businesswork@gmail.com
 
 ## Store review declarations
 

@@ -6,7 +6,7 @@ Security fixes are provided for the latest released minor version. Development b
 
 ## Reporting a vulnerability
 
-Do not open a public issue for an exploitable vulnerability. Email `supportramsandesh@gmail.com` with the affected version, reproduction steps, impact, and any suggested mitigation. Do not include real user data or credentials. You should receive an acknowledgement within seven calendar days, but this is a best-effort open-source target rather than a service-level agreement.
+Do not open a public issue for an exploitable vulnerability. Email `sanskarcodes@gmail.com` with the affected version, reproduction steps, impact, and any suggested mitigation. Do not include real user data or credentials. You should receive an acknowledgement within seven calendar days, but this is a best-effort open-source target rather than a service-level agreement.
 
 ## Scope
 

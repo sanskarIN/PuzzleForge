@@ -17,6 +17,6 @@ Harassment, threats, discriminatory language, sexualized attention, doxxing, del
 
 ## Enforcement
 
-Report conduct concerns privately to `supportramsandesh@gmail.com`. Maintainers will review reports in good faith, protect reporter privacy where feasible, and may warn, temporarily restrict, or permanently remove participants. Decisions may be appealed once by email with relevant context.
+Report conduct concerns privately to `sanskarcodes@gmail.com`. Maintainers will review reports in good faith, protect reporter privacy where feasible, and may warn, temporarily restrict, or permanently remove participants. Decisions may be appealed once by email with relevant context.
 
 This policy is adapted from Contributor Covenant 2.1 and should be interpreted in the spirit of building a safe, inclusive project.
