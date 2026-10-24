@@ -14,6 +14,7 @@ Puzzle Path (formerly PuzzleForge) is a playable offline Android source alpha bu
 - Persistence ordering, immutable completion records, Continue recovery, foreground timer recovery, and backwards streak-date handling are fixed with regression coverage.
 - Strict static analysis passes; all **55 tests pass** on Flutter 3.47.0 / Dart 3.13.0. The initial run had 41 passes and two date-sensitive smoke failures; those are fixed.
 - Optional protected Android upload signing is configured. Requiring signing without android/key.properties correctly fails before compilation.
+- Refreshed debug APK and unsigned release APK/AAB build with release lint passing. Manifest and signature inspection confirm Puzzle Path branding and retained Android identity; see the artifact register for hashes.
 
 ## Release gates and unfinished features
 

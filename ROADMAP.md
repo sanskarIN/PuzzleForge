@@ -17,7 +17,7 @@ Reconciled against source and executed tests on 24 October 2026. Items are inten
 
 - [x] Strict formatter/analyzer and 55 local tests pass
 - [x] Protected upload-key configuration and required-signing guard
-- [ ] Refreshed Android artifacts reviewed and signer state recorded
+- [x] Refreshed Android debug/unsigned release APK and AAB built, hashed, and signer state recorded
 - [ ] Signed AAB verified against the maintainer's upload certificate
 - [ ] Device integration, TalkBack, large text, orientation, lifecycle, and profile performance gates
 - [ ] Store assets, hosted privacy policy, listing/forms, and legal review
