@@ -118,12 +118,22 @@ class PlayerProgress {
   }
 
   void _advanceStreak(DateTime completedAt) {
-    final date = DateTime(completedAt.year, completedAt.month, completedAt.day);
+    // Compare civil calendar days in UTC so daylight-saving transitions do not
+    // turn consecutive local dates into a 23-hour gap.
+    final date = DateTime.utc(
+      completedAt.year,
+      completedAt.month,
+      completedAt.day,
+    );
     final previous = lastDailyDate;
     if (previous != null) {
-      final priorDate = DateTime(previous.year, previous.month, previous.day);
+      final priorDate = DateTime.utc(
+        previous.year,
+        previous.month,
+        previous.day,
+      );
       final difference = date.difference(priorDate).inDays;
-      if (difference == 0) return;
+      if (difference <= 0) return;
       currentStreak = difference == 1 ? currentStreak + 1 : 1;
     } else {
       currentStreak = 1;
