@@ -6,6 +6,7 @@ import 'package:puzzle_forge/core/services/external_link_service.dart';
 import 'package:puzzle_forge/core/storage/app_repository.dart';
 import 'package:puzzle_forge/core/storage/key_value_store.dart';
 import 'package:puzzle_forge/widgets/bmc_support_card.dart';
+import 'package:puzzle_forge/widgets/puzzle_card.dart';
 
 void main() {
   testWidgets('home renders brand, daily content, puzzles, and support', (
@@ -20,7 +21,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('PuzzleForge'), findsWidgets);
     expect(find.text('Puzzle of the Day'), findsOneWidget);
-    expect(find.text('Sliding Tiles'), findsOneWidget);
+    expect(find.widgetWithText(PuzzleCard, 'Sliding Tiles'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('Support this project — Buy Me a Coffee'),
       500,
@@ -59,7 +60,10 @@ void main() {
     );
     await tester.pumpWidget(PuzzleForgeApp(controller: controller));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Sliding Tiles'));
+    final tilesCard = find.widgetWithText(PuzzleCard, 'Sliding Tiles');
+    await tester.ensureVisible(tilesCard);
+    await tester.pumpAndSettle();
+    await tester.tap(tilesCard);
     await tester.pumpAndSettle();
     expect(find.text('Choose difficulty'), findsOneWidget);
     await tester.tap(find.text('Medium'));
