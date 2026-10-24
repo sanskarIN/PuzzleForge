@@ -5,7 +5,8 @@
 - [x] Formatter reports no changes
 - [x] Analyzer reports zero errors and zero infos under project policy
 - [x] Unit, rule, deterministic, serialization, migration, localization, and widget tests pass
-- [ ] Android debug APK builds
+- [x] Android debug APK builds
+- [x] Unsigned release APK and AAB compile with release lint passing
 - [ ] Signed release AAB builds in the protected release environment
 - [x] Resolved Dart dependency and bundled-asset license review is complete
 - [x] Secret-pattern scan and generated-artifact review pass
@@ -22,4 +23,4 @@
 
 Do not call a build a release candidate until every mandatory item has recorded evidence in `docs/testing/test_matrix.md`.
 
-The checked automated items were last verified on 2026-08-14. Android artifact and manual-device items remain intentionally unchecked, so version `0.1.0+1` is a source alpha rather than a release candidate.
+The checked automated items and unsigned Android artifacts were verified on 2026-09-02. Signing and manual-device items remain intentionally unchecked, so version `0.1.0+1` is a source alpha rather than a release candidate.

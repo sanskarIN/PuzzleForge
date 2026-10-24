@@ -21,7 +21,7 @@ class SafeExternalLinkService implements ExternalLinkService {
     if (!_isAllowed(uri)) return false;
     try {
       if (!await canLaunchUrl(uri)) return false;
-      return launchUrl(uri, mode: LaunchMode.externalApplication);
+      return await launchUrl(uri, mode: LaunchMode.externalApplication);
     } on Exception {
       return false;
     }
