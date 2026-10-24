@@ -62,6 +62,7 @@ void main() {
     await tester.pumpAndSettle();
     final tilesCard = find.widgetWithText(PuzzleCard, 'Sliding Tiles');
     await tester.ensureVisible(tilesCard);
+    await tester.pumpAndSettle();
     await tester.tap(tilesCard);
     await tester.pumpAndSettle();
     expect(find.text('Choose difficulty'), findsOneWidget);
