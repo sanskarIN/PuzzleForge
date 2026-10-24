@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../app/controller_scope.dart';
 import '../core/constants/app_links.dart';
 import '../core/localization/app_localizations.dart';
 import '../widgets/bmc_support_card.dart';
 import '../widgets/brand_mark.dart';
+import '../widgets/external_link_tile.dart';
 
 class SupportScreen extends StatelessWidget {
   const SupportScreen({super.key});
@@ -18,25 +18,35 @@ class SupportScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: <Widget>[
           const BmcSupportCard(),
+          ExternalLinkTile(
+            icon: Icons.favorite_outline_rounded,
+            label: strings.text('support.razorpay'),
+            uri: AppLinks.razorpay,
+          ),
+          ExternalLinkTile(
+            icon: Icons.favorite_outline_rounded,
+            label: strings.text('support.paypal'),
+            uri: AppLinks.paypal,
+          ),
           const SizedBox(height: 18),
           Text(
             strings.text('support.contact'),
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: 8),
-          _ExternalTile(
+          ExternalLinkTile(
+            icon: Icons.language_rounded,
+            label: strings.text('about.website'),
+            uri: AppLinks.website,
+          ),
+          ExternalLinkTile(
             icon: Icons.support_agent_rounded,
-            label: 'supportramsandesh@gmail.com',
-            uri: AppLinks.supportEmail,
+            label: strings.text('support.mainEmail'),
+            uri: AppLinks.mainEmail,
           ),
-          _ExternalTile(
-            icon: Icons.code_rounded,
-            label: 'sanskarin@outlook.in',
-            uri: AppLinks.projectEmail,
-          ),
-          _ExternalTile(
+          ExternalLinkTile(
             icon: Icons.business_center_outlined,
-            label: 'sanskarin.business@gmail.com',
+            label: strings.text('support.businessEmail'),
             uri: AppLinks.businessEmail,
           ),
           const SizedBox(height: 12),
@@ -74,15 +84,20 @@ class AboutScreen extends StatelessWidget {
           const SizedBox(height: 10),
           Text(strings.text('about.credits'), textAlign: TextAlign.center),
           const SizedBox(height: 18),
-          _ExternalTile(
+          ExternalLinkTile(
             icon: Icons.code_rounded,
             label: strings.text('about.repository'),
             uri: AppLinks.repository,
           ),
-          _ExternalTile(
+          ExternalLinkTile(
             icon: Icons.person_outline_rounded,
             label: strings.text('about.creator'),
             uri: AppLinks.creator,
+          ),
+          ExternalLinkTile(
+            icon: Icons.language_rounded,
+            label: strings.text('about.website'),
+            uri: AppLinks.website,
           ),
           const SizedBox(height: 14),
           const BmcSupportCard(compact: true),
@@ -123,33 +138,6 @@ class LegalScreen extends StatelessWidget {
         const SizedBox(height: 18),
         const BmcSupportCard(compact: true),
       ],
-    ),
-  );
-}
-
-class _ExternalTile extends StatelessWidget {
-  const _ExternalTile({
-    required this.icon,
-    required this.label,
-    required this.uri,
-  });
-  final IconData icon;
-  final String label;
-  final Uri uri;
-
-  @override
-  Widget build(BuildContext context) => Card(
-    child: ListTile(
-      leading: Icon(icon),
-      title: Text(label),
-      trailing: const Icon(Icons.open_in_new_rounded),
-      onTap: () async {
-        final opened = await ControllerScope.read(context).openExternal(uri);
-        if (!context.mounted || opened) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(context.strings.text('support.openFailed'))),
-        );
-      },
     ),
   );
 }
