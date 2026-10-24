@@ -1,3 +1,5 @@
 # Next
 
-The next development target is the exact resume pointer in `docs/development/continuation_ledger.md`. After the first offline release, priority moves to additional solver-backed puzzle modules, authored campaigns, device QA, and community-requested accessibility improvements.
+Review the continuation PRs in order, then run the Android integration/device matrix and produce a signed AAB using the protected maintainer upload key. The exact resume pointer and evidence are in [the continuation ledger](../development/continuation_ledger.md).
+
+Before expanding release claims, implement audio/haptic/notification services and authored campaign progression. Additional puzzle modules come after reliability and device accessibility. See [the reconciled roadmap](../../ROADMAP.md).

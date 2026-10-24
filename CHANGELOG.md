@@ -4,6 +4,22 @@ All notable changes follow Keep a Changelog principles. This project uses semant
 
 ## [Unreleased]
 
+### Changed — 24 October 2026
+
+- Renamed the app to Puzzle Path, preserving Android/data/backup/seed compatibility.
+- Updated the website, BMC destination, main/business emails, and added Razorpay/PayPal support.
+- Restricted external launches to registered destinations and added a copy-link fallback.
+- Added protected upload signing and a required-signing guard; CI pins Flutter 3.47.0/JDK 17.
+- Reconciled project status and roadmap with actual source and remaining release gates.
+
+### Fixed — 24 October 2026
+
+- Pending saves recreating deleted data and settings writes finishing out of order.
+- Replays changing completion records before persistence finished.
+- Saved puzzles staying paused, foreground timers not resuming, and inconsistent injected clocks.
+- Backwards streak dates and daylight-saving civil-day comparisons.
+- Date-sensitive home smoke selectors; the full suite now passes 55 tests.
+
 ### Added
 
 - Flutter Android project foundation.
