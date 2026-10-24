@@ -17,7 +17,7 @@
 - [ ] Phone, tablet, portrait, landscape, background/resume, and low-memory smoke tests pass
 - [ ] Every enabled generator produces verified solvable samples across difficulties
 - [ ] Save/resume, undo/redo, stable daily seed, hint charging, and idempotent progression verified
-- [ ] External BMC, GitHub, and email links work and fail gracefully
+- [ ] External website, BMC, Razorpay, PayPal, GitHub, and email links work on devices and fail gracefully (automated destination/fallback tests pass)
 - [ ] Privacy, terms, store listing, content rating, data safety, and legal review complete
 - [ ] Adaptive icon, splash, screenshots, version code, signing, R8, backup rules, and target SDK reviewed
 

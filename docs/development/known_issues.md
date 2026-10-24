@@ -1,9 +1,16 @@
 # Known Issues
 
-| ID | Severity | State | Description | Next action |
-|---|---|---|---|---|
-| PUB-001 | High | Resolved | `agent/complete-project` is now pushed and tracks `origin/agent/complete-project` on `https://github.com/sanskarIN/PuzzleForge.git`. | Keep the existing commit history; open a pull request after GitHub CLI authentication is renewed. |
-| TOOL-001 | Medium | Open | GitHub CLI authentication reports an invalid stored token. | Run `gh auth login --hostname github.com`, then create a draft PR after the branch exists on the remote. |
-| QA-001 | High | Resolved | Direct Gradle `assembleDebug`, `assembleRelease`, and `bundleRelease` complete with the populated offline cache and JDK 17. Release lint also passes after backup-rule and optional integration-test registrant fixes. | Keep JDK 17 selected for reproducible Android builds until the JDK 26 image-transform issue is resolved upstream. |
-| QA-002 | High | Open | Android emulator/physical-device, TalkBack, background/resume, rotation, low-memory, profile performance, and signed AAB checks have not run. | Execute the manual release matrix on representative devices after an APK builds. |
-| REL-001 | High | Open | Release outputs are unsigned because no upload keystore is stored in or available to this workspace. | Create/protect an upload keystore outside Git, configure `key.properties` in the release environment, rebuild, and verify Play App Signing metadata. |
+Reviewed 24 October 2026.
+
+| ID | State | Description / next action |
+|---|---|---|
+| TOOL-001 | Resolved | GitHub CLI and connected tools work; branches and review PRs are published. |
+| DATA-001 | Resolved | Queued saves recreated deleted data and rapid settings writes finished out of order. One queue and snapshots pass gated-I/O regressions. |
+| DATA-002 | Resolved | Immediate replay modified an in-flight completion. Capture the record on the solving event. |
+| LIFE-001 | Resolved in automated tests | Continue and foreground recovery pass widget tests; Android device validation remains open. |
+| QA-002 | Open | No connected Android device. Run integration, TalkBack, large text, lifecycle, orientation, low-memory, and profile checks. |
+| REL-001 | Open | No maintainer upload key is available. Configure ignored android/key.properties, require signing, and verify the AAB against Play Console. |
+| FEAT-001 | Open | Audio/music/haptics/notification services are absent; controls persist preferences only. |
+| FEAT-002 | Open | Campaign selection has no authored content/milestone locks; mastery and missions are unfinished. |
+| DATA-003 | Open | Only schema 1 is supported. Multi-version migrations and cross-record import rollback are not implemented. |
+| BUILD-002 | Follow-up | AGP 9 reports deprecated legacy Kotlin/DSL flags and SDK XML warnings. Verify builds before a separate plugin migration. |
