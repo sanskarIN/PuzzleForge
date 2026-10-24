@@ -1,7 +1,26 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+}
+
+val uploadKeyFile = rootProject.file("key.properties")
+val uploadKey = Properties()
+if (uploadKeyFile.exists()) {
+    uploadKeyFile.inputStream().use { uploadKey.load(it) }
+    for (name in listOf("storeFile", "storePassword", "keyAlias", "keyPassword")) {
+        require(!uploadKey.getProperty(name).isNullOrBlank()) {
+            "Missing $name in android/key.properties"
+        }
+    }
+    require(rootProject.file(uploadKey.getProperty("storeFile")).isFile) {
+        "Upload keystore file does not exist"
+    }
+}
+require(!providers.gradleProperty("requireReleaseSigning").map { it.toBoolean() }.getOrElse(false) || uploadKeyFile.exists()) {
+    "Release signing is required. Configure the protected android/key.properties file first."
 }
 
 android {
@@ -22,8 +41,22 @@ android {
         versionName = flutter.versionName
     }
 
+    signingConfigs {
+        if (uploadKeyFile.exists()) {
+            create("release") {
+                storeFile = rootProject.file(uploadKey.getProperty("storeFile"))
+                storePassword = uploadKey.getProperty("storePassword")
+                keyAlias = uploadKey.getProperty("keyAlias")
+                keyPassword = uploadKey.getProperty("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
+            if (uploadKeyFile.exists()) {
+                signingConfig = signingConfigs.getByName("release")
+            }
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
